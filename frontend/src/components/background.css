@@ -1,0 +1,126 @@
+* body {
+    background-color: rgb(215, 255, 222);
+    
+}
+
+.title {
+    text-align: center;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 400;
+}
+
+.form-adj {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.adj-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.card-fonts{
+    font-size: large;
+    
+   
+}
+
+.form-adj {
+    /* background-color: rgb(215, 255, 222); */
+    background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
+}
+
+/************* CARD CSS ****************/
+
+.fixdshit {
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.containerz {
+    display: inline-flex;
+    text-decoration: none;
+    color: black;
+}
+
+.image-container {
+    width: 12rem;
+    height: 14rem;
+    overflow: hidden;
+}
+
+.card-container {
+    text-align: center;
+    margin: 15px;
+    border-radius: 20px;
+    width: 12rem;
+    height: 21rem;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    transition: 0.3s;
+    animation: ease-in-out;
+}
+
+.btn {
+    width: 100%;
+    height: 3rem;
+}
+
+.card-container:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px 0px;
+}
+
+.image-container img {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/******** student profile page *********************/
+
+
+
+
+.fixImg {
+    margin: 1.2rem;
+    width: 13rem;
+}
+
+.sing {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #printableArea * {
+        visibility: visible;
+    }
+
+    #section-to-print {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+/*********************** sws-button**********/
+
+.swal-button{
+    background-color: green;
+    color: white;
+}
+.swal-button:hover{
+    background-color: aqua;
+    color: white;
+}
