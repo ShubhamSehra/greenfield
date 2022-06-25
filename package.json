@@ -9,6 +9,7 @@
     "install-frontend": "cd frontend && npm install",
     "heroku-postbuild": "npm run install-frontend && npm run build",
     "start": "node server.js",
+    "client": "cd frontend && npm start",
     "nodemon": "nodemon server.js"
   },
   "author": "Shubham Sehra",
