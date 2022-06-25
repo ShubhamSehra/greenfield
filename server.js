@@ -133,5 +133,5 @@ if (process.env.MONGODB_KEY === 'production'){
 }
 
 app.listen(PORT, (req, res) => {
-  console.log("we are online at 3001");
+  console.log("we are online at" ($PORT) );
 });
