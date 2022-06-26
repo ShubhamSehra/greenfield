@@ -83,9 +83,9 @@ app.get("/students", (req, res) => {
   students.find().then((foundUser) => res.json(foundUser));
 });
 
-// app.get("/", (req, res) => {
-//   res.send("Hello world");
-// });
+app.get("/",(req,res)=>{
+  res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
+})
 
 app.put("/students/update", upload.single("studentphoto"), async (req, res) => {
   const datatopass = {
