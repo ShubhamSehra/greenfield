@@ -84,7 +84,9 @@ app.get("/students", (req, res) => {
   students.find().then((foundUser) => res.json(foundUser));
 });
 
-
+app.get("/", (req, res) =>{
+  res.send("THIS IS NOT OK")
+})
 
 app.put("/students/update", upload.single("studentphoto"), async (req, res) => {
   const datatopass = {
@@ -129,9 +131,9 @@ app.delete("/students/delete/:id", async (req, res) => {
 
 if (process.env.NODE_ENV === 'production'){
   app.use(express.static('frontend/build'));
-  app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname,'frontend','build','index.html'));
-  });
+  // app.get('*',(req,res)=>{
+  //   res.sendFile(path.join(__dirname,'frontend','build','index.html'));
+  // });
 }
 
 app.listen(PORT, (req, res) => {
