@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Logo from '../logos/school_logo.svg';
 
 function Navbarr()  {
