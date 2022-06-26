@@ -44,7 +44,7 @@ const students = mongoose.model("students", studentSchema);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./frontend/public/photos");
+    cb(null, "./client/public/photos");
   },
   filename: (req, file, cb) => {
     cb(null, file.filename + "-" + Date.now() + file.originalname);
@@ -131,9 +131,9 @@ app.delete("/students/delete/:id", async (req, res) => {
 });
 
 if (process.env.NODE_ENV === 'production'){
-  app.use(express.static('frontend/build'));
+  app.use(express.static('client/build'));
   app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'frontend','build','index.html'));
+    res.sendFile(path.resolve(__dirname,'client','build','index.html'));
   });
 }
 
