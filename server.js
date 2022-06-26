@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const multer = require("multer");
-
+const path = require("path");
 app = express();
 
 app.use(cors());
@@ -83,9 +83,9 @@ app.get("/students", (req, res) => {
   students.find().then((foundUser) => res.json(foundUser));
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello world");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello world");
+// });
 
 app.put("/students/update", upload.single("studentphoto"), async (req, res) => {
   const datatopass = {
@@ -129,7 +129,10 @@ app.delete("/students/delete/:id", async (req, res) => {
 });
 
 if (process.env.MONGODB_KEY === 'production'){
-  app.use(express.static('frontend/build'))
+  app.use(express.static('frontend/build'));
+  app.get("*",(req,res)=>{
+    res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
+  })
 }
 
 app.listen(PORT, (req, res) => {
