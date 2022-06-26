@@ -12,9 +12,6 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use(express.static(__dirname + '/'));
-
-
 //*** db has my id passs  **** */
 const PORT = process.env.PORT || 3001
 
@@ -44,7 +41,7 @@ const students = mongoose.model("students", studentSchema);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./client/public/photos");
+    cb(null, "./frontend/public/photos");
   },
   filename: (req, file, cb) => {
     cb(null, file.filename + "-" + Date.now() + file.originalname);
@@ -131,9 +128,9 @@ app.delete("/students/delete/:id", async (req, res) => {
 });
 
 if (process.env.NODE_ENV === 'production'){
-  app.use(express.static('client/build'));
+  app.use(express.static('frontend/build'));
   app.get('*',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'client','build','index.html'));
+    res.sendFile(path.resolve(__dirname,'frontend','build','index.html'));
   });
 }
 
