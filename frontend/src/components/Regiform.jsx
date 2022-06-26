@@ -57,7 +57,7 @@ function Regiform(props) {
       address: info.address,
     };
     
-    await axios.put("http://localhost:3001/students/update", studata);
+    await axios.put("/students/update", studata);
     swal({
       title: "Profile updated!",
       icon: "success",

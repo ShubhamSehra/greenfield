@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Logo from '../logos/school_logo.svg';
 
 function Navbarr()  {
@@ -9,8 +9,8 @@ function Navbarr()  {
     return(
         <Navbar >
     <Container>
-      <Link to="/" >
-
+      <NavLink to="/" exact>
+       
       <Navbar.Brand>
         <img
           alt="logo"
@@ -21,7 +21,7 @@ function Navbarr()  {
         />{' '}
      <strong className='brand-name'> <span style={{color : "green"}} >GREEN FILED</span></strong> 
       </Navbar.Brand>
-      </Link>
+      </NavLink>
     </Container>
     <Nav className='m-2' >
 

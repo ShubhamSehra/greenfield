@@ -29,7 +29,7 @@ function Stprofile(props) {
 
         if  (willDelete) {
           try {
-          await   axios.delete(`http://localhost:3001/students/delete/${id}`).then(()=> { navigate("/") }).catch((error)=>{(console.log(error))});
+          await   axios.delete(`/students/delete/${id}`).then(()=> { navigate("/") }).catch((error)=>{(console.log(error))});
             
           } catch (error) {
             
