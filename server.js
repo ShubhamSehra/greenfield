@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const router = express.Router();
 const multer = require("multer");
-const path = require('path');
+
 app = express();
 
 app.use(cors());
@@ -131,6 +131,7 @@ app.delete("/students/delete/:id", async (req, res) => {
 
 
 if (process.env.NODE_ENV === 'production'){
+  const path = require('path');
   app.use(express.static(path.resolve(__dirname, "./frontend/build")));
   
   app.get("*", (req, res) =>{
