@@ -41,7 +41,7 @@ const students = mongoose.model("students", studentSchema);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./frontend/public/photos");
+    cb(null, "./frontend/build/photos");
   },
   filename: (req, file, cb) => {
     cb(null, file.filename + "-" + Date.now() + file.originalname);
