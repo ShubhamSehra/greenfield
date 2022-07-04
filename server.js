@@ -41,7 +41,7 @@ const students = mongoose.model("students", studentSchema);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./frontend/build/photos");
+    cb(null, "./frontend/public/photos");
   },
   filename: (req, file, cb) => {
     cb(null, file.filename + "-" + Date.now() + file.originalname);
@@ -84,9 +84,7 @@ app.get("/students", (req, res) => {
   students.find().then((foundUser) => res.json(foundUser));
 });
 
-// app.get("/", (req, res) =>{
-//   res.send("THIS IS NOT OK")
-// })
+
 
 app.put("/students/update", upload.single("studentphoto"), async (req, res) => {
   const datatopass = {
@@ -100,7 +98,7 @@ app.put("/students/update", upload.single("studentphoto"), async (req, res) => {
     stndrd: req.body.stndrd,
     phone: req.body.phone,
     address: req.body.address,
-    photo: req.body.filename,
+    photo: req.file.filename,
 };
 
 
