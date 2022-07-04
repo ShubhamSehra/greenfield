@@ -80,13 +80,13 @@ app.post("/newentry", upload.single("photo"), (req, res) => {
   res.redirect("/");
 });
 
-app.get("/students", (req, res) => {
+app.get("studentdata", (req, res) => {
   students.find().then((foundUser) => res.json(foundUser));
 });
 
 
 
-app.put("/students/update", upload.single("studentphoto"), async (req, res) => {
+app.put("/studentdata/update", upload.single("photo"), async (req, res) => {
   const datatopass = {
     id: req.body.id,
     fname: req.body.fname,

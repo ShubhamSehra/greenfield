@@ -11,7 +11,7 @@ function Students() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    fetch("students")
+    fetch("studentdata")
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -51,7 +51,7 @@ function Students() {
                 setSearchParams({});
               }
             }}
-            placeholder="Search students..."
+            placeholder="Search good students..."
             
           />
         </InputGroup>

@@ -15,7 +15,7 @@ function StudentProfile() {
 
     const getStudent = () =>{
       
-      axios.get('/students')
+      axios.get('/studentdata')
       .then( (response) => {
           const res = (response.data).find((found)=> found._id === studentId)
           setStudent(res)
