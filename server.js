@@ -80,7 +80,7 @@ app.post("/newentry", upload.single("photo"), (req, res) => {
   res.redirect("/");
 });
 
-app.get("students", (req, res) => {
+app.get("/students", (req, res) => {
   students.find().then((foundUser) => res.json(foundUser));
 });
 
