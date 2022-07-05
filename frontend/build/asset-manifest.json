@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.96acf818.css",
-    "main.js": "/static/js/main.ee5da6b5.js",
+    "main.js": "/static/js/main.c1d48952.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
     "static/media/school_logo.svg": "/static/media/school_logo.87ecf6a9ce9386dd3ff277a912a60a7c.svg",
     "index.html": "/index.html",
     "main.96acf818.css.map": "/static/css/main.96acf818.css.map",
-    "main.ee5da6b5.js.map": "/static/js/main.ee5da6b5.js.map",
+    "main.c1d48952.js.map": "/static/js/main.c1d48952.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.96acf818.css",
-    "static/js/main.ee5da6b5.js"
+    "static/js/main.c1d48952.js"
   ]
 }
