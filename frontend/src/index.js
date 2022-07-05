@@ -20,7 +20,7 @@ root.render(
     <Route path="/enroll" element={<Enroll />} />
     <Route path="/studentsdata" element={<Students />} />
     
-    <Route path="students/:studentId" element={<StudentProfile />} />
+    <Route path="studentsdata/:studentId" element={<StudentProfile />} />
    <Route path="/edit/:studentId"  element={<Editpage />}  />
     <Route
       path="*"

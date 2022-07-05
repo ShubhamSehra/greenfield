@@ -26,7 +26,7 @@ function Navbarr()  {
     <Nav className='m-2' >
 
     
-    <Link to="/students" className='me-2' style={{ color: "transparent" }}  > 
+    <Link to="/studentsdata" className='me-2' style={{ color: "transparent" }}  > 
     <strong > <span style={{color : "green"}} >Dashboard</span></strong> 
      </Link>
     <Link to="/enroll" style={{ color: "transparent" }}  >

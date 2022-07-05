@@ -21,7 +21,7 @@ function App() {
         <Link  className="btn btn-outline-success btn-lg m-2" to={"enroll"} >Enroll New Student</Link>
           
           
-          <Link to={"students"} className="btn btn-outline-success btn-lg m-2">
+          <Link to={"studentsdata"} className="btn btn-outline-success btn-lg m-2">
             Dashboard{" "}
           </Link>
 
