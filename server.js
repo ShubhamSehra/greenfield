@@ -115,7 +115,7 @@ app.put("/students/update", upload.single("photo"), async (req, res) => {
     photo: datatopass.photo,
     address: datatopass.address,
   };
-
+  
   await students
     .findByIdAndUpdate(datatopass.id, connectData)
     .then((founditem) => res.json(founditem));
