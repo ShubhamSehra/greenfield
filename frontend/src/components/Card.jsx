@@ -8,7 +8,7 @@ function Card(props) {
   
     return (
       <Link style={{ color: "transparent" }}
-      to={`/students/${props.id}`} 
+      to={`/studentsdata/${props.id}`} 
       key = {props.id}
       >
 

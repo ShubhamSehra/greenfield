@@ -70,7 +70,7 @@ function Stprofile(props) {
           <Col md="auto" > 
           
           <img className="fixImg"
-                src={`/photos/${props.photo}`}
+                src={`../build/photos/${props.photo}`}
                 alt="..."
               />
 
