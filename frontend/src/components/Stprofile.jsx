@@ -114,7 +114,7 @@ function Stprofile(props) {
             <td colSpan={3}> {props.phone} </td>
           </tr>
           <tr>
-            <td>Address</td>
+            <td>Address:</td>
             <td colSpan={3}> {props.address} </td>
           </tr>
         </tbody>
