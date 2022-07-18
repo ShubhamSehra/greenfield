@@ -15,7 +15,7 @@ function Card(props) {
     <div className="containerz"  >
       <div className="card-container"  >
         <div className="image-container">
-          <img src={`data:image/{props.photo.contentType};base64,{props.photo.data.toString('base64')}`} alt="..." />
+          <img src={`data:image/${props.photo.contentType};base64,${props.photo.data.toString('base64')}`} alt="..." />
         </div>
         <div style={{ textTransform: "uppercase" }} >
         
