@@ -5,7 +5,7 @@ function Card(props) {
   
   
   
-  const base64String = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
+
   return (
     <Link style={{ color: "transparent" }}
       to={`/studentsdata/${props.id}`} 
