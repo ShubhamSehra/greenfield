@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const router = express.Router();
 const multer = require("multer");
-
+const fs = require('fs')
 app = express();
 
 app.use(cors());
@@ -34,14 +34,17 @@ const studentSchema = new mongoose.Schema({
   stndrd: Number,
   phone: Number,
   address: String,
-  photo: String,
+  photo: {
+    data: Buffer,
+    contentType: String
+  }
 });
 
 const students = mongoose.model("students", studentSchema);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./frontend/public/photos");
+    cb(null, "./public/photos");
   },
   filename: (req, file, cb) => {
     cb(null, file.filename + "-" + Date.now() + file.originalname);
@@ -74,7 +77,10 @@ app.post("/newentry", upload.single("photo"), (req, res) => {
     stndrd: stndrd,
     phone: phone,
     address: address,
-    photo: photo,
+    photo: {
+      data: fs.readFileSync(path.join(__dirname + './public/photos' + req.file.filename)),
+      contentType : 'image/png'
+    },
   });
   newStudents.save();
   res.redirect("/");

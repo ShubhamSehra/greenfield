@@ -209,7 +209,7 @@ function Regiform(props) {
                   size="md"
                   required
                   onChange={hanldeChange}
-                  // value = {`/photos/${info.photo}`}
+                  
                 />
               </Form.Group>
             </Col>
