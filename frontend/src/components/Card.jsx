@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 
 function Card(props) {
   
-  // const base64String = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)))
-  console.log(props.photo.data);
-  console.log(props.photo.data.toString('base64'));
+  const base64String = btoa(String.fromCharCode(...new Uint8Array(props.photo)))
 
   return (
     <Link style={{ color: "transparent" }}
@@ -17,7 +15,7 @@ function Card(props) {
       <div className="card-container"  >
         <div className="image-container">
           
-          <img src={`data:image/png;base64,${props.photo.data.toString('base64')}`} alt="..." />
+          <img src={`data:image/png;base64,${base64String}`} alt="..." />
         </div>
         <div style={{ textTransform: "uppercase" }} >
         
