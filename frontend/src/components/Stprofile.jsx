@@ -46,11 +46,10 @@ function Stprofile(props) {
         }
       });
 
-
-     
-       
-      
   }
+
+  console.log(props.photo);
+  console.log(props.fname);
 
   return (
     <div>

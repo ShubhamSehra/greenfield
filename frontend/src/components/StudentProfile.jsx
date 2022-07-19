@@ -28,11 +28,6 @@ function StudentProfile() {
       useEffect(getStudent,[studentId])
   
   
-
-      console.log(studentData);
-      console.log(studentData[0]);
-      console.log(studentData[1].fname);
-      console.log(studentData.fname);
   
   return (
     
