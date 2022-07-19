@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function Card(props) {
   
   const base64String = btoa(
-    String.fromCharCode(...new Uint8Array(props.photo))
-  );
-  
+    String.fromCharCode(...new Uint8Array(props.img))
+      );
+
   return (
     <Link
       style={{ color: "transparent" }}
