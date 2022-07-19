@@ -20,14 +20,14 @@ function Students() {
       .then((jsonres) => setStudent(jsonres));
   }, []);
 
-  console.log(student);
+  console.log(student.photo);
   function createCard(stndt) {
     return (
       <Card
         id={stndt._id}
         fname={stndt.fname}
         lname={stndt.lname}
-      
+        img = {stndt.photo}
         father={stndt.fathername}
         stndrd={stndt.stndrd}
         phone={stndt.phone}
