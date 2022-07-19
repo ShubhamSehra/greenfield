@@ -20,7 +20,7 @@ function Students() {
       .then((jsonres) => setStudent(jsonres));
   }, []);
 
-  console.log(student.photo);
+  console.log(student);
   function createCard(stndt) {
     return (
       <Card
