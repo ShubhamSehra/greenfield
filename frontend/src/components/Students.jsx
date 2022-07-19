@@ -26,7 +26,7 @@ function Students() {
         id={stndt._id}
         fname={stndt.fname}
         lname={stndt.lname}
-        
+        photo = {stndt.photo.data.data}
         father={stndt.fathername}
         stndrd={stndt.stndrd}
         phone={stndt.phone}
@@ -62,10 +62,10 @@ function Students() {
   
 
        
-            <h1>yooyoy</h1>
+           
             {/* {student.map(createCard)} */}
 
-            {student.map((singleData) => {
+            {/* {student.map((singleData) => {
               const base64String = btoa(
     String.fromCharCode(...new Uint8Array(singleData.photo.data.data))
       );
@@ -76,15 +76,15 @@ function Students() {
 
                 </div>
               )
-            })}
-      {/* {student
+            })} */}
+      {student
         .filter((student) => {
           const filter = searchParams.get("filter");
           if (!filter) return true;
           const name = student.fname.toLowerCase();
           return name.startsWith(filter.toLowerCase());
         })
-        .map(createCard)} */}
+        .map(createCard)}
     </div>
   );
 }
