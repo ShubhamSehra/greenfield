@@ -20,13 +20,14 @@ function Students() {
       .then((jsonres) => setStudent(jsonres));
   }, []);
 
+  console.log(student.photo.data.data);
   function createCard(stndt) {
     return (
       <Card
         id={stndt._id}
         fname={stndt.fname}
         lname={stndt.lname}
-        photo={stndt.photo.data.data}
+        photo={stndt.photo}
         father={stndt.fathername}
         stndrd={stndt.stndrd}
         phone={stndt.phone}
@@ -61,14 +62,16 @@ function Students() {
       <br />
   
 
-      {student
+        {student.map(createCard)}
+
+      {/* {student
         .filter((student) => {
           const filter = searchParams.get("filter");
           if (!filter) return true;
           const name = student.fname.toLowerCase();
           return name.startsWith(filter.toLowerCase());
         })
-        .map(createCard)}
+        .map(createCard)} */}
     </div>
   );
 }
