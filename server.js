@@ -72,7 +72,7 @@ app.post("/newentry", upload.single("photo"), (req, res) => {
      address : req.body.address,
      photo: {
       data : fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
-      contentType: "image/png"
+      contentType: "image/jpeg"
      }
   }
 
