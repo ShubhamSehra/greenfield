@@ -26,7 +26,7 @@ function Students() {
         id={stndt._id}
         fname={stndt.fname}
         lname={stndt.lname}
-        photo={stndt.photo.data}
+        photo={stndt.photo.data.data}
         father={stndt.fathername}
         stndrd={stndt.stndrd}
         phone={stndt.phone}
