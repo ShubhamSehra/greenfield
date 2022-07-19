@@ -22,14 +22,14 @@ function Students() {
 
   console.log(student.fname);
   console.log(student[20]);
-  console.log(student[20].photo);
+ 
   function createCard(stndt) {
     return (
       <Card
         id={stndt._id}
         fname={stndt.fname}
         lname={stndt.lname}
-        img = {stndt.photo}
+        
         father={stndt.fathername}
         stndrd={stndt.stndrd}
         phone={stndt.phone}
