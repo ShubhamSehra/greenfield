@@ -12,7 +12,10 @@ import { useNavigate, Link } from "react-router-dom";
 
 function Stprofile(props) {
 
- 
+  const base64String = btoa(
+    String.fromCharCode(...new Uint8Array(props.photo))
+  );
+
   const navigate = useNavigate();
  
 
@@ -70,7 +73,7 @@ function Stprofile(props) {
           <Col md="auto" > 
           
           <img className="fixImg"
-                src={`/photos/${props.photo}`}
+                src={`data:image/png;base64,${base64String}`}
                 alt="..."
               />
 
