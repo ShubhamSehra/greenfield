@@ -35,7 +35,7 @@ function Students() {
   //   );
   // }
   const base64String = btoa(
-    String.fromCharCode(...new Uint8Array(props.photo))
+    String.fromCharCode(...new Uint8Array(student.photo.data.data))
       );
   return (
     <div className="container">
