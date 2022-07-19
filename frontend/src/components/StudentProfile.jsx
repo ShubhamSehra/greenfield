@@ -29,7 +29,7 @@ function StudentProfile() {
   
   
 
-
+      console.log(studentData);
   
   return (
     
@@ -42,7 +42,7 @@ function StudentProfile() {
         <Stprofile 
         // studentData = {studentData}
           id = {studentData._id}
-          img = {studentData.photo}
+          img = {studentData.photo.data.data}
           fname = {studentData.fname}
           lname = {studentData.lname}
           fathername = {studentData.fathername}
