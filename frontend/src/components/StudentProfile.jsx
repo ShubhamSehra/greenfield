@@ -30,6 +30,9 @@ function StudentProfile() {
   
 
       console.log(studentData);
+      console.log(studentData[0]);
+      console.log(studentData[1].fname);
+      console.log(studentData.fname);
   
   return (
     
@@ -42,7 +45,7 @@ function StudentProfile() {
         <Stprofile 
         // studentData = {studentData}
           id = {studentData._id}
-          img = {studentData.photo.data.data}
+          img = {studentData.photo}
           fname = {studentData.fname}
           lname = {studentData.lname}
           fathername = {studentData.fathername}
