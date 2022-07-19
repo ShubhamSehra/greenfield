@@ -10,7 +10,7 @@ function StudentProfile() {
 
   const {studentId} = useParams();
   
-  const [studentData, setStudent ] = useState({});
+  const [studentData, setStudent ] = useState([]);
 
 
     const getStudent = () =>{
@@ -42,7 +42,7 @@ function StudentProfile() {
         <Stprofile 
         // studentData = {studentData}
           id = {studentData._id}
-          img = {studentData.photo.data.data}
+          img = {studentData.photo}
           fname = {studentData.fname}
           lname = {studentData.lname}
           fathername = {studentData.fathername}
