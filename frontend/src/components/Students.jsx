@@ -66,13 +66,13 @@ function Students() {
             {/* {student.map(createCard)} */}
 
             {student.map((singleData) => {
-              {/* const base64String = btoa(
+              const base64String = btoa(
     String.fromCharCode(...new Uint8Array(singleData.photo.data.data))
-      ); */}
+      );
               return (
                 <div>
               <h1> {singleData.fname} </h1>
-              {/* <img src={`data:image/png;base64,${base64String}`} alt="..." /> */}
+              <img src={`data:image/png;base64,${base64String}`} alt="..." />
 
                 </div>
               )
