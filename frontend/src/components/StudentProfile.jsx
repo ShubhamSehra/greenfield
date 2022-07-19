@@ -42,7 +42,7 @@ function StudentProfile() {
         <Stprofile 
         studentData = {studentData}
           id = {studentData._id}
-          photo = {studentData.photo.data.data}
+          photo = {studentData.photo.data}
           fname = {studentData.fname}
           lname = {studentData.lname}
           fathername = {studentData.fathername}

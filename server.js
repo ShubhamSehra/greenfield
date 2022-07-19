@@ -8,7 +8,7 @@ const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
 const studentModel = require('./model') 
-app = express();
+const app = express();
 
 app.use(cors());
 
@@ -25,6 +25,18 @@ mongoose.connect(db);
 mongoose.connection.on("connected", () => {
   console.log("mongooose is connected");
 });
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads"); 
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + "-" + Date.now() + file.originalname); 
+  },
+});
+
+const upload = multer({ storage: storage });
+
 
 // const studentSchema = new mongoose.Schema({
 //   fname: String,
@@ -45,16 +57,6 @@ mongoose.connection.on("connected", () => {
 
 // const students = mongoose.model("students", studentSchema);
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads"); 
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.fieldname + "-" + Date.now() + file.originalname); 
-  },
-});
-
-const upload = multer({ storage: storage });
 
 app.post("/newentry", upload.single("photo"), (req, res) => {
 
