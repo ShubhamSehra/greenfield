@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Card(props) {
   
-  
+  const base64String = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
   
 
   return (
@@ -16,7 +16,7 @@ function Card(props) {
       <div className="card-container"  >
         <div className="image-container">
           
-          <img src={`data:image/jpeg;base64,${props.photo.data.toString('base64')}`} alt="..." />
+          <img src={`data:image/jpeg;base64,${base64String}`} alt="..." />
         </div>
         <div style={{ textTransform: "uppercase" }} >
         
