@@ -20,9 +20,6 @@ function Students() {
       .then((jsonres) => setStudent(jsonres));
   }, []);
 
-  console.log(student.fname);
-  console.log(student[20]);
- 
   function createCard(stndt) {
     return (
       <Card
@@ -66,7 +63,20 @@ function Students() {
 
        
             <h1>yooyoy</h1>
-            {student.map(createCard)}
+            {/* {student.map(createCard)} */}
+
+            {student.map((data) => {
+              const base64String = btoa(
+    String.fromCharCode(...new Uint8Array(data.photo.data.data))
+      );
+              return (
+                <div>
+              <h1> {data.fname} </h1>
+              <img src={`data:image/png;base64,${base64String}`} alt="..." />
+
+                </div>
+              )
+            })}
       {/* {student
         .filter((student) => {
           const filter = searchParams.get("filter");
