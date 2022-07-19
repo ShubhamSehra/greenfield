@@ -72,7 +72,7 @@ app.post("/newentry", upload.single("photo"), (req, res) => {
      address : req.body.address,
      photo: {
       data : fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
-      contentType: "image/jpeg"
+      contentType: "image/png"
      }
   }
 
@@ -106,39 +106,39 @@ app.get("/students", (req, res) => {
   studentModel.find().then((foundUser) => res.json(foundUser));
 });
 
-app.put("/students/update", upload.single("photo"), async (req, res) => {
-  const datatopass = {
-    id: req.body.id,
-    fname: req.body.fname,
-    lname: req.body.lname,
-    fathername: req.body.fathername,
-    occupation: req.body.occupation,
-    dob: req.body.dob,
-    gender: req.body.gender,
-    stndrd: req.body.stndrd,
-    phone: req.body.phone,
-    address: req.body.address,
-    photo: req.body.filename,
-  };
+// app.put("/students/update", upload.single("photo"), async (req, res) => {
+//   const datatopass = {
+//     id: req.body.id,
+//     fname: req.body.fname,
+//     lname: req.body.lname,
+//     fathername: req.body.fathername,
+//     occupation: req.body.occupation,
+//     dob: req.body.dob,
+//     gender: req.body.gender,
+//     stndrd: req.body.stndrd,
+//     phone: req.body.phone,
+//     address: req.body.address,
+//     photo: req.body.filename,
+//   };
 
-  const connectData = {
-    fname: datatopass.fname,
-    lname: datatopass.lname,
-    fathername: datatopass.fathername,
-    fathername: datatopass.fathername,
-    occupation: datatopass.occupation,
-    dob: datatopass.dob,
-    gender: datatopass.gender,
-    stndrd: datatopass.stndrd,
-    phone: datatopass.phone,
-    photo: datatopass.photo,
-    address: datatopass.address,
-  };
+//   const connectData = {
+//     fname: datatopass.fname,
+//     lname: datatopass.lname,
+//     fathername: datatopass.fathername,
+//     fathername: datatopass.fathername,
+//     occupation: datatopass.occupation,
+//     dob: datatopass.dob,
+//     gender: datatopass.gender,
+//     stndrd: datatopass.stndrd,
+//     phone: datatopass.phone,
+//     photo: datatopass.photo,
+//     address: datatopass.address,
+//   };
 
-  await students
-    .findByIdAndUpdate(datatopass.id, connectData)
-    .then((founditem) => res.json(founditem));
-});
+//   await students
+//     .findByIdAndUpdate(datatopass.id, connectData)
+//     .then((founditem) => res.json(founditem));
+// });
 
 app.delete("/students/delete/:id", async (req, res) => {
   const id = req.params.id;
