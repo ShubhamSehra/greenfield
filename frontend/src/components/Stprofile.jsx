@@ -13,7 +13,7 @@ import { useNavigate, Link } from "react-router-dom";
 function Stprofile(props) {
 
   const base64String = btoa(
-    String.fromCharCode(...new Uint8Array(props.img))
+    String.fromCharCode(...new Uint8Array(props.photo?.data?.data))
   );
 
   const navigate = useNavigate();
