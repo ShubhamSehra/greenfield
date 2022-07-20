@@ -48,7 +48,7 @@ function Stprofile(props) {
 
   }
 
-  console.log(props.img.data);
+  console.log(props.photo.data);
   console.log(props.fname);
 
   return (
