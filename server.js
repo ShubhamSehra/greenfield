@@ -70,9 +70,7 @@ app.post("/newentry", upload.single("photo"), (req, res) => {
 
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello world");
-});
+
 
 
 app.get("/students", (req, res) => {

@@ -21,7 +21,6 @@ function Regiform(props) {
 
   
   const handleEdit = async (e) => {
-    e.preventDefault();
     const studata = {
       id: props.id,
       fname: info.fname,
@@ -32,22 +31,22 @@ function Regiform(props) {
       gender: info.gender,
       stndrd: info.stndrd,
       phone: info.phone,
-      address: info.address,
       photo: info.photo,
+      address: info.address,
     };
-    
+
     await axios.put("/api/update", studata);
     await swal({
       title: "Profile updated!",
       icon: "success",
       button: "Ok",
     })
-    .then(() => {
-      navigate(-1);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then(() => {
+        navigate(-1);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   
   const handleSubmit = (event) => {
