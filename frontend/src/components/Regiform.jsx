@@ -18,8 +18,24 @@ function Regiform(props) {
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
   };
-
   
+  // ******************* Handle Submit **********************
+  
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    
+    await axios.post("/api/newentry", studata);
+    if (form.checkValidity() === false) {
+      swal("Student Not Enrolled!", "", "error");
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      swal("Student Enrolled!", "", "success");
+    }
+    
+    setValidated(true);
+  };
+  // ************ Handling Edit ********************************** 
   const handleEdit = async (e) => {
     const studata = {
       id: props.id,
@@ -48,20 +64,9 @@ function Regiform(props) {
         console.log(error);
       });
   };
-  
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
 
-    if (form.checkValidity() === false) {
-      swal("Student Not Enrolled!", "", "error");
-      event.preventDefault();
-      event.stopPropagation();
-    } else {
-      swal("Student Enrolled!", "", "success");
-    }
 
-    setValidated(true);
-  };
+
   let d = new Date();
   let today = d.toLocaleDateString("en-IN");
 
@@ -75,7 +80,7 @@ function Regiform(props) {
         )}
       </div>
       <Form
-        action="/newentry"
+        // action="/newentry"
         method="POST"
         encType="multipart/form-data"
         noValidate
