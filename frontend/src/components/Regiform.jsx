@@ -207,7 +207,7 @@ function Regiform(props) {
                   type="file"
                   name="photo"
                   size="md"
-                  required
+                  
                   onChange={hanldeChange}
                   
                 />

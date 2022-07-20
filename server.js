@@ -106,14 +106,14 @@ app.put("/students/update", upload.single("photo"), async (req, res) => {
     address: datatopass.address,
   };
 
-  await students
+  await studentModel
     .findByIdAndUpdate(datatopass.id, connectData)
     .then((founditem) => res.json(founditem));
 });
 
-app.delete("/students/delete/:id",  (req, res) => {
+app.delete("/students/delete/:id", async (req, res) => {
   const id = req.params.id;
-   students?.findByIdAndRemove(id)?.exec();
+  await studentModel.findByIdAndRemove(id).exec();
   res.send("/");
 });
 
