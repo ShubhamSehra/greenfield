@@ -219,7 +219,7 @@ function Regiform(props) {
               </Col>
             </Row>
           </Row>
-          {!props.id ? (
+          {!props.id && (
             <div className="adj-btn">
               <button
                 type="submit"
@@ -234,19 +234,18 @@ function Regiform(props) {
                 Clear
               </button>
             </div>
-          ) : (
-            <div className="adj-btn">
+          )}
+        </Container>
+      </Form>
+           {!props.id && (<div className="adj-btn">
               <button
                 className="btn btn-outline-success btn-lg m-3"
-                onSubmit={false}
+               
                 onClick={handleEdit}
               >
                 Update
               </button>
-            </div>
-          )}
-        </Container>
-      </Form>
+            </div>)}
     </div>
   );
 }
