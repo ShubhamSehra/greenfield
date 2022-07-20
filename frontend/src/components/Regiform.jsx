@@ -24,7 +24,7 @@ function Regiform(props) {
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
     
-    await axios.post("/api/newentry", studata);
+    await axios.post("/api/newentry");
     if (form.checkValidity() === false) {
       swal("Student Not Enrolled!", "", "error");
       event.preventDefault();
