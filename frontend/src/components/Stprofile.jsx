@@ -20,8 +20,8 @@ function Stprofile(props) {
  
 
     const handleDelete =  (id) =>{
-
-          axios.delete(`/students/delete/${id}`).then(()=> { navigate("/") }).catch((error)=>{(console.log(error))});
+          console.log(id);
+          // axios.delete(`/students/delete/${id}`).then(()=> { navigate("/") }).catch((error)=>{(console.log(error))});
       // swal({
       //   title: "Are you sure?",
       //   text: "You want to deleted student profile?",
