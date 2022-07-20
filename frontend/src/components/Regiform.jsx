@@ -21,6 +21,7 @@ function Regiform(props) {
 
   
   const handleEdit = async (e) => {
+    e.preventDefault();
     const studata = {
       id: props.id,
       fname: info.fname,
