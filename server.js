@@ -111,9 +111,9 @@ app.put("/students/update", upload.single("photo"), async (req, res) => {
     .then((founditem) => res.json(founditem));
 });
 
-app.delete("/students/delete/:id", async (req, res) => {
+app.delete("/students/delete/:id",  (req, res) => {
   const id = req.params.id;
-  await students.findByIdAndRemove(id).exec();
+   students.findByIdAndRemove(id).exec();
   res.send("/");
 });
 

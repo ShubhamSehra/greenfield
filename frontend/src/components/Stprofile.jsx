@@ -20,32 +20,30 @@ function Stprofile(props) {
  
 
     const handleDelete =  (id) =>{
-          console.log(id);
-          // axios.delete(`/students/delete/${id}`).then(()=> { navigate("/") }).catch((error)=>{(console.log(error))});
-      // swal({
-      //   title: "Are you sure?",
-      //   text: "You want to deleted student profile?",
-      //   icon: "warning",
-      //   buttons: true,
-      //   dangerMode: false,
-      // })
-      // .then(async(willDelete) => {
+      swal({
+        title: "Are you sure?",
+        text: "You want to deleted student profile?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: false,
+      })
+      .then(async(willDelete) => {
 
-      //   if  (willDelete) {
-      //     try {
-      //     await   axios.delete(`/students/delete/${id}`).then(()=> { navigate("/") }).catch((error)=>{(console.log(error))});
+        if  (willDelete) {
+          try {
+          await   axios.delete(`/students/delete/${id}`).then(()=> { navigate("/") }).catch((error)=>{(console.log(error))});
             
-      //     } catch (error) {
+          } catch (error) {
             
-      //       console.log(error);
-      //     }
-      //     swal( "Student's profile has been deleted!", {
-      //       icon: "success",
-      //     });
-      //   } else {
-      //     swal( "Student file is safe!");
-      //   }
-      // });
+            console.log(error);
+          }
+          swal( "Student's profile has been deleted!", {
+            icon: "success",
+          });
+        } else {
+          swal( "Student file is safe!");
+        }
+      });
 
   }
 
