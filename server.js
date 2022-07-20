@@ -103,8 +103,7 @@ app.put("/students/update", upload.single("photo"), async (req, res) => {
     address: datatopass.address,
   };
 
-  await studentModel
-    .findByIdAndUpdate(datatopass.id, connectData)
+  await studentModel.findByIdAndUpdate(datatopass.id, connectData)
     .then((founditem) => res.json(founditem)).catch((err) => console.log(err));
 });
 

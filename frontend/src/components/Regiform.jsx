@@ -238,7 +238,7 @@ function Regiform(props) {
             <div className="adj-btn">
               <button
                 className="btn btn-outline-success btn-lg m-3"
-                onClick={handleEdit}
+                onClick={()=> handleEdit}
               >
                 Update
               </button>
