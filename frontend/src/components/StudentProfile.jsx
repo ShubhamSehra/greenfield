@@ -40,9 +40,9 @@ function StudentProfile() {
         <Stprofile 
         // studentData = {studentData}
           id = {studentData._id}
-          photo = {studentData.photo}
           fname = {studentData.fname}
           lname = {studentData.lname}
+          photo = {studentData.photo}
           fathername = {studentData.fathername}
           stndrd = {studentData.stndrd}
           dob = {studentData.dob}

@@ -61,22 +61,7 @@ function Students() {
       <br />
   
 
-       
-           
-            {/* {student.map(createCard)} */}
 
-            {/* {student.map((singleData) => {
-              const base64String = btoa(
-    String.fromCharCode(...new Uint8Array(singleData.photo.data.data))
-      );
-              return (
-                <div>
-              <h1> {singleData.fname} </h1>
-              <img src={`data:image/png;base64,${base64String}`} alt="..." />
-
-                </div>
-              )
-            })} */}
       {student
         .filter((student) => {
           const filter = searchParams.get("filter");
