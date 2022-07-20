@@ -77,6 +77,7 @@ function Regiform(props) {
        
       </div>
       <Form
+      
         action="/newentry"
         method="POST"
         encType="multipart/form-data"
@@ -245,7 +246,7 @@ function Regiform(props) {
           </div>) :
       (<div className="adj-btn">
           <button
-            type="button"
+            
             className="btn btn-outline-success btn-lg m-3"
             onClick={handleEdit}
           >
