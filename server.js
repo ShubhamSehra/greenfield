@@ -113,7 +113,7 @@ app.put("/students/update", upload.single("photo"), async (req, res) => {
 
 app.delete("/students/delete/:id",  (req, res) => {
   const id = req.params.id;
-   students.findByIdAndRemove(id).exec();
+   students?.findByIdAndRemove(id)?.exec();
   res.send("/");
 });
 
