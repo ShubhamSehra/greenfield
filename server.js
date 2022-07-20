@@ -86,7 +86,7 @@ app.put("/students/update", upload.single("photo"), async (req, res) => {
     stndrd: req.body.stndrd,
     phone: req.body.phone,
     address: req.body.address,
-    photo: req.body.photo,
+    photo: req.body.filename,
   };
 
   const connectData = {

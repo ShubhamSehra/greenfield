@@ -58,7 +58,7 @@ function Regiform(props) {
     };
     
     await axios.put("/students/update", studata);
-    swal({
+    await swal({
       title: "Profile updated!",
       icon: "success",
       button: "Ok",
@@ -70,7 +70,6 @@ function Regiform(props) {
   let d = new Date();
   let today = d.toLocaleDateString("en-IN");
  
-  console.log(info, "shu");
   return (
     <div className="form-adj">
       <div>
