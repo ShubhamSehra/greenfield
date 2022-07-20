@@ -36,7 +36,7 @@ function Regiform(props) {
       photo: info.photo,
     };
     
-    await axios.put("/students/update", studata);
+    await axios.put("/api/update", studata);
     await swal({
       title: "Profile updated!",
       icon: "success",

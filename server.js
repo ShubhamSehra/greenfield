@@ -70,11 +70,16 @@ app.post("/newentry", upload.single("photo"), (req, res) => {
 
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello world");
+});
+
+
 app.get("/students", (req, res) => {
   studentModel.find().then((foundUser) => res.json(foundUser));
 });
 
-app.put("/students/update", upload.single("photo"), async (req, res) => {
+app.put("/api/update", upload.single("photo"), async (req, res) => {
   const datatopass = {
     id: req.body.id,
     fname: req.body.fname,
