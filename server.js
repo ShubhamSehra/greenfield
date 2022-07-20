@@ -86,10 +86,7 @@ app.put("/students/update", upload.single("photo"), async (req, res) => {
     stndrd: req.body.stndrd,
     phone: req.body.phone,
     address: req.body.address,
-    photo: {
-      data : fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
-      contentType: "image/png"
-     }
+    photo: req.body.photo,
   };
 
   const connectData = {
@@ -108,7 +105,7 @@ app.put("/students/update", upload.single("photo"), async (req, res) => {
 
   await studentModel
     .findByIdAndUpdate(datatopass.id, connectData)
-    .then((founditem) => res.json(founditem));
+    .then((founditem) => res.json(founditem)).catch((err) => console.log(err));
 });
 
 app.delete("/students/delete/:id", async (req, res) => {
