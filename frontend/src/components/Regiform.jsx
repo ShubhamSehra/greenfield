@@ -54,10 +54,7 @@ function Regiform(props) {
       stndrd: info.stndrd,
       phone: info.phone,
       address: info.address,
-      photo: {
-        data : fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
-        contentType: "image/png"
-       }
+      photo: info.photo,
     };
     
     await axios.put("/students/update", studata);
