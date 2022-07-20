@@ -21,7 +21,7 @@ function Regiform(props) {
   
   // ******************* Handle Submit **********************
   
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     const form = event.currentTarget;
     
     await axios.post("/api/newentry", studata);
