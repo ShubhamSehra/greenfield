@@ -237,7 +237,7 @@ function Regiform(props) {
           )}
         </Container>
       </Form>
-           {!props.id && (<div className="adj-btn">
+           {props.id && (<div className="adj-btn">
               <button
                 className="btn btn-outline-success btn-lg m-3"
                
