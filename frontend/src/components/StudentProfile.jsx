@@ -38,7 +38,7 @@ function StudentProfile() {
         
         
         <Stprofile 
-        // studentData = {studentData}
+        studentData = {studentData}
           id = {studentData._id}
           fname = {studentData.fname}
           lname = {studentData.lname}
