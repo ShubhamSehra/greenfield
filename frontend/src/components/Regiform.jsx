@@ -19,20 +19,7 @@ function Regiform(props) {
     setInfo({ ...info, [name]: value });
   };
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-
-    if (form.checkValidity() === false) {
-      swal("Student Not Enrolled!", "", "error");
-      event.preventDefault();
-      event.stopPropagation();
-    } else {
-      swal("Student Enrolled!", "", "success");
-    }
-
-    setValidated(true);
-  };
-
+  
   const handleEdit = async (e) => {
     const studata = {
       id: props.id,
@@ -47,21 +34,34 @@ function Regiform(props) {
       address: info.address,
       photo: info.photo,
     };
-
+    
     await axios.put("/students/update", studata);
     await swal({
       title: "Profile updated!",
       icon: "success",
       button: "Ok",
     })
-      .then(() => {
-        navigate(-1);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    .then(() => {
+      navigate(-1);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
+  
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
 
+    if (form.checkValidity() === false) {
+      swal("Student Not Enrolled!", "", "error");
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      swal("Student Enrolled!", "", "success");
+    }
+
+    setValidated(true);
+  };
   let d = new Date();
   let today = d.toLocaleDateString("en-IN");
 
@@ -219,7 +219,7 @@ function Regiform(props) {
               </Col>
             </Row>
           </Row>
-          {!props.id && (
+          {!props.id ? (
             <div className="adj-btn">
               <button
                 type="submit"
@@ -234,18 +234,18 @@ function Regiform(props) {
                 Clear
               </button>
             </div>
-          )}
-        </Container>
-      </Form>
-           {props.id && (<div className="adj-btn">
+          ) : (
+            <div className="adj-btn">
               <button
                 className="btn btn-outline-success btn-lg m-3"
-               
                 onClick={handleEdit}
               >
                 Update
               </button>
-            </div>)}
+            </div>
+          )}
+        </Container>
+      </Form>
     </div>
   );
 }
