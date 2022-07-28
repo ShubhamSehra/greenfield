@@ -93,12 +93,12 @@ function Regiform(props) {
         )}
       </div>
       <Form
-        action=""
+        // action=""
         // method="POST"
         encType="multipart/form-data"
         // noValidate
         // validated={validated}
-        onSubmit={handleSubmit}
+        
       >
         <Container>
           <Row>
@@ -240,6 +240,7 @@ function Regiform(props) {
           {!props.id ? (
             <div className="adj-btn">
               <button
+              onClick={handleSubmit}
                 type="submit"
                 className="btn btn-outline-success btn-lg m-3"
               >
