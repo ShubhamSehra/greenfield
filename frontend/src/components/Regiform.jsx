@@ -21,11 +21,13 @@ function Regiform(props) {
 
   // ******************* Handle Submit **********************
 
-  const handleSubmit = async (event) => {
+  const handleSubmit =  (event) => {
     // const form = event.currentTarget;
-    event.preventDefault();
+    // event.preventDefault();
 
-    await axios.post("https://greenfieldschool.herokuapp.com/enroll/api/newentry", {
+    console.log(info.fname, info);
+
+     axios.post("/api/newentry", {
       fname : info.fname,
       lname : info.lname,
       fathername : info.fathername,

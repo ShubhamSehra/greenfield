@@ -59,7 +59,7 @@ const upload = multer({ storage: storage });
 
 // *********** app-post methods #1 ************
 
-app.post("https://greenfieldschool.herokuapp.com/enroll/api/newentry", upload.single("photo"), (req, res) => {
+app.post("/api/newentry", upload.single("photo"), (req, res) => {
   
     const studentObj = {
 
