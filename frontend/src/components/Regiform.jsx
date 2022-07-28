@@ -23,6 +23,7 @@ function Regiform(props) {
 
   const handleSubmit = async (event) => {
     // const form = event.currentTarget;
+    event.preventDefault();
 
     await axios.post("/api/newentry", {
       fname : info.fname,
