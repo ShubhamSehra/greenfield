@@ -93,8 +93,8 @@ function Regiform(props) {
         // action="/newentry"
         method="POST"
         encType="multipart/form-data"
-        noValidate
-        validated={validated}
+        // noValidate
+        // validated={validated}
         onSubmit={handleSubmit}
       >
         <Container>
