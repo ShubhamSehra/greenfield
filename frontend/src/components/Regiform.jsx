@@ -39,6 +39,7 @@ function Regiform(props) {
       phone : info.phone,
       address : info.address,
       // photo : info.photo,
+      
     }).then(res => console.log('posting data', res)).catch(err => console.log(err))
     // if (form.checkValidity() === false) {
     //   swal("Student Not Enrolled!", "", "error");
