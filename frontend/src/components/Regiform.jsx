@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 function Regiform(props) {
   const [info, setInfo] = useState(props.id ? props.studentData : {});
 
-  const [validated, setValidated] = useState(false);
+  // const [validated, setValidated] = useState(false);
 
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ function Regiform(props) {
   // ******************* Handle Submit **********************
 
   const handleSubmit = async (event) => {
-    const form = event.currentTarget;
+    // const form = event.currentTarget;
 
     await axios.post("/api/newentry", {
       fname : info.fname,
@@ -36,16 +36,16 @@ function Regiform(props) {
       phone : info.phone,
       address : info.address,
       photo : info.photo,
-    });
-    if (form.checkValidity() === false) {
-      swal("Student Not Enrolled!", "", "error");
-      event.preventDefault();
-      event.stopPropagation();
-    } else {
-      swal("Student Enrolled!", "", "success");
-    }
+    }).then(res => console.log('posting data', res)).catch(err => console.log(err))
+    // if (form.checkValidity() === false) {
+    //   swal("Student Not Enrolled!", "", "error");
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // } else {
+    //   swal("Student Enrolled!", "", "success");
+    // }
 
-    setValidated(true);
+    // setValidated(true);
   };
   // ************ Handling Edit **********************************
   const handleEdit = async (e) => {
