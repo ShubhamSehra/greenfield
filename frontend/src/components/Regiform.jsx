@@ -93,8 +93,8 @@ function Regiform(props) {
         )}
       </div>
       <Form
-        // action="/newentry"
-        method="POST"
+        action=""
+        // method="POST"
         encType="multipart/form-data"
         // noValidate
         // validated={validated}
