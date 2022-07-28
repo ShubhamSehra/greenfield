@@ -23,7 +23,7 @@ function Regiform(props) {
 
   const handleSubmit =  (event) => {
     // const form = event.currentTarget;
-    // event.preventDefault();
+    event.preventDefault();
 
     console.log(info.fname, info);
 
