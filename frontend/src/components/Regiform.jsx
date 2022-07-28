@@ -18,13 +18,25 @@ function Regiform(props) {
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
   };
-  
+
   // ******************* Handle Submit **********************
-  
+
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
-    
-    await axios.post("/api/newentry");
+
+    await axios.post("/api/newentry", {
+      fname,
+      lname,
+      fathername,
+      occupation,
+      dob,
+      gender,
+      enrollDate,
+      stndrd,
+      phone,
+      address,
+      photo,
+    });
     if (form.checkValidity() === false) {
       swal("Student Not Enrolled!", "", "error");
       event.preventDefault();
@@ -32,10 +44,10 @@ function Regiform(props) {
     } else {
       swal("Student Enrolled!", "", "success");
     }
-    
+
     setValidated(true);
   };
-  // ************ Handling Edit ********************************** 
+  // ************ Handling Edit **********************************
   const handleEdit = async (e) => {
     const studata = {
       id: props.id,
@@ -64,8 +76,6 @@ function Regiform(props) {
         console.log(error);
       });
   };
-
-
 
   let d = new Date();
   let today = d.toLocaleDateString("en-IN");
@@ -243,7 +253,7 @@ function Regiform(props) {
             <div className="adj-btn">
               <button
                 className="btn btn-outline-success btn-lg m-3"
-                onClick={()=> handleEdit}
+                onClick={() => handleEdit}
               >
                 Update
               </button>
