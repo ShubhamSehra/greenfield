@@ -7,7 +7,7 @@ const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
-const studentModel = require('./model') 
+// const studentModel = require('./model') 
 const app = express();
 
 app.use(cors());
@@ -21,6 +21,26 @@ const PORT = process.env.PORT || 3001;
 const db = process.env.MONGODB_KEY || process.env.SERVER_KEY;
 
 mongoose.connect(db);
+
+
+const studentSchema = new mongoose.Schema({
+  fname: String,
+  lname: String,
+  fathername: String,
+  occupation: String,
+  dob: String,
+  gender: String,
+  enrollDate: String,
+  stndrd: Number,
+  phone: Number,
+  address: String,
+  photo: {
+    data: Buffer,
+    contentType: String,
+  },
+});
+
+const students = mongoose.model("students", studentSchema);
 
 mongoose.connection.on("connected", () => {
   console.log("mongooose is connected");
@@ -37,41 +57,78 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+// *********** app-post methods #1 ****** not working******
+
+// app.post("/api/newentry", upload.single("photo"), (req, res) => {
+  
+  //   const studentObj = {
+
+//      fname : req.body.fname,
+//      lname : req.body.lname,
+//      fathername : req.body.fathername,
+//      occupation : req.body.occupation,
+//      dob : req.body.dob,
+//      gender : req.body.gender,
+//      enrollDate : req.body.enrollDate,
+//      stndrd : req.body.stndrd,
+//      phone : req.body.phone,
+//      address : req.body.address,
+//      photo: {
+//       data : fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
+//       contentType: "image/png"
+//      }
+//   }
+
+//   studentModel.create(studentObj, (err, item) =>{
+//     if(err) {
+  //       console.log(err);
+//     } else {
+  //       item.save();
+  //       res.redirect("/")
+  //     }
+  //   })
+  
+  // });
+  
+  
+  // *********** app-post methods #2 ************
 
 
-app.post("/newentry", upload.single("photo"), (req, res) => {
-
-  const studentObj = {
-
-     fname : req.body.fname,
-     lname : req.body.lname,
-     fathername : req.body.fathername,
-     occupation : req.body.occupation,
-     dob : req.body.dob,
-     gender : req.body.gender,
-     enrollDate : req.body.enrollDate,
-     stndrd : req.body.stndrd,
-     phone : req.body.phone,
-     address : req.body.address,
-     photo: {
+  app.post("/api/newentry", upload.single("photo"), (req, res) => {
+    const fname = req.body.fname;
+    const lname = req.body.lname;
+    const fathername = req.body.fathername;
+    const occupation = req.body.occupation;
+    const dob = req.body.dob;
+    const gender = req.body.gender;
+    const enrollDate = req.body.enrollDate;
+    const stndrd = req.body.stndrd;
+    const phone = req.body.phone;
+    const address = req.body.address;
+    const photo = req.file.filename;
+  
+    const newStudents = new students({
+      fname: fname,
+      lname: lname,
+      fathername: fathername,
+      occupation: occupation,
+      dob: dob,
+      gender: gender,
+      enrollDate: enrollDate,
+      stndrd: stndrd,
+      phone: phone,
+      address: address,
+      photo: {
       data : fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
       contentType: "image/png"
      }
-  }
-
-  studentModel.create(studentObj, (err, item) =>{
-    if(err) {
-      console.log(err);
-    } else {
-      item.save();
-      res.redirect("/")
-    }
-  })
-
-});
+    });
+    newStudents.save();
+    res.redirect("/");
+  });
 
 
-
+  
 
 app.get("/students", (req, res) => {
   studentModel.find().then((foundUser) => res.json(foundUser));
