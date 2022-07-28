@@ -25,7 +25,7 @@ function Regiform(props) {
     // const form = event.currentTarget;
     event.preventDefault();
 
-    console.log(info.fname, info);
+    console.log(info.fname, "sh");
 
      axios.post("/api/newentry", {
       fname : info.fname,
@@ -38,7 +38,7 @@ function Regiform(props) {
       stndrd : info.stndrd,
       phone : info.phone,
       address : info.address,
-      photo : info.photo,
+      // photo : info.photo,
     }).then(res => console.log('posting data', res)).catch(err => console.log(err))
     // if (form.checkValidity() === false) {
     //   swal("Student Not Enrolled!", "", "error");
