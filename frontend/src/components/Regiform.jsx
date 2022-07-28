@@ -25,7 +25,7 @@ function Regiform(props) {
     // const form = event.currentTarget;
     event.preventDefault();
 
-    await axios.post("/api/newentry", {
+    await axios.post("https://greenfieldschool.herokuapp.com/enroll/api/newentry", {
       fname : info.fname,
       lname : info.lname,
       fathername : info.fathername,
