@@ -25,17 +25,17 @@ function Regiform(props) {
     const form = event.currentTarget;
 
     await axios.post("/api/newentry", {
-      fname,
-      lname,
-      fathername,
-      occupation,
-      dob,
-      gender,
-      enrollDate,
-      stndrd,
-      phone,
-      address,
-      photo,
+      fname : info.fname,
+      lname : info.lname,
+      fathername : info.fathername,
+      occupation : info.occupation,
+      dob : info.dob,
+      gender : info.gender,
+      enrollDate : info.enrollDate,
+      stndrd : info.stndrd,
+      phone : info.phone,
+      address : info.address,
+      photo : info.photo,
     });
     if (form.checkValidity() === false) {
       swal("Student Not Enrolled!", "", "error");
