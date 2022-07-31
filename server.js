@@ -62,7 +62,7 @@ const upload = multer({ storage: storage });
 app.post("/api/newentry", upload.single("photo"), (req, res) => {
   
   try {
-    
+    console.log("reached here");
     const studentObj = {
 
      fname : req.body.fname,
@@ -80,7 +80,8 @@ app.post("/api/newentry", upload.single("photo"), (req, res) => {
       contentType: "image/png"
      }
   }
-
+  console.log(studentObj);
+  
   studentModel.create(studentObj, (err, item) =>{
     if(err) {
         console.log(err);
