@@ -6,6 +6,7 @@ import swal from "sweetalert";
 import Input from "./Input";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { response } from "express";
 
 function Regiform(props) {
   const [info, setInfo] = useState(props.id ? props.studentData : {});
@@ -26,7 +27,7 @@ function Regiform(props) {
     // event.preventDefault();
 
     console.log(info.fname, "sh");
-      try {
+      
       //   const headers = {
       //     'Content-Type': 'application/json;charset=UTF-8',
       //     "Access-Control-Allow-Origin": "*",
@@ -44,10 +45,10 @@ function Regiform(props) {
          address : info.address,
          photo : info.photo,
          
-       }).then(res => console.log('posting data', res)).catch(err => console.log(err))
-      } catch (error) {
-          console.log(error);
-      }
+       }).then((response) => {
+        console.log(response);
+       }, (error) => {console.log(error)}  )
+      
     // if (form.checkValidity() === false) {
     //   swal("Student Not Enrolled!", "", "error");
     //   event.preventDefault();
