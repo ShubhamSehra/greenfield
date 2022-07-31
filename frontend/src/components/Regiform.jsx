@@ -27,10 +27,10 @@ function Regiform(props) {
 
     console.log(info.fname, "sh");
       try {
-        const headers = {
-          'Content-Type': 'application/json;charset=UTF-8',
-          "Access-Control-Allow-Origin": "*",
-      }
+      //   const headers = {
+      //     'Content-Type': 'application/json;charset=UTF-8',
+      //     "Access-Control-Allow-Origin": "*",
+      // }
         axios.post("/api/newentry", {
          fname : info.fname,
          lname : info.lname,
@@ -44,7 +44,7 @@ function Regiform(props) {
          address : info.address,
          photo : info.photo,
          
-       }, {headers}).then(res => console.log('posting data', res)).catch(err => console.log(err))
+       }).then(res => console.log('posting data', res)).catch(err => console.log(err))
       } catch (error) {
           console.log(error);
       }
