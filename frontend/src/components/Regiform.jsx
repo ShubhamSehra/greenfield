@@ -250,7 +250,7 @@ function Regiform(props) {
             <div className="adj-btn">
               <button
               onClick={handleSubmit}
-                type="submit"
+                // type="submit"
                 className="btn btn-outline-success btn-lg m-3"
               >
                 Submit
