@@ -42,7 +42,7 @@ function Regiform(props) {
          stndrd : info.stndrd,
          phone : info.phone,
          address : info.address,
-         // photo : info.photo,
+         photo : info.photo,
          
        }, {headers}).then(res => console.log('posting data', res)).catch(err => console.log(err))
       } catch (error) {

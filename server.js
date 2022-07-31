@@ -61,6 +61,8 @@ const upload = multer({ storage: storage });
 
 app.post("/api/newentry", upload.single("photo"), (req, res) => {
   
+  try {
+    
     const studentObj = {
 
      fname : req.body.fname,
@@ -87,6 +89,9 @@ app.post("/api/newentry", upload.single("photo"), (req, res) => {
         res.redirect("/")
       }
     })
+  } catch (error) {
+    console.log(error);
+  }
   
   });
   
