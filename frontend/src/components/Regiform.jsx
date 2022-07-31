@@ -26,21 +26,28 @@ function Regiform(props) {
     event.preventDefault();
 
     console.log(info.fname, "sh");
-
-     axios.post("/api/newentry", {
-      fname : info.fname,
-      lname : info.lname,
-      fathername : info.fathername,
-      occupation : info.occupation,
-      dob : info.dob,
-      gender : info.gender,
-      enrollDate : info.enrollDate,
-      stndrd : info.stndrd,
-      phone : info.phone,
-      address : info.address,
-      // photo : info.photo,
-      
-    }).then(res => console.log('posting data', res)).catch(err => console.log(err))
+      try {
+        const headers = {
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*",
+      }
+        axios.post("/api/newentry", {
+         fname : info.fname,
+         lname : info.lname,
+         fathername : info.fathername,
+         occupation : info.occupation,
+         dob : info.dob,
+         gender : info.gender,
+         enrollDate : info.enrollDate,
+         stndrd : info.stndrd,
+         phone : info.phone,
+         address : info.address,
+         // photo : info.photo,
+         
+       }, {headers}).then(res => console.log('posting data', res)).catch(err => console.log(err))
+      } catch (error) {
+          console.log(error);
+      }
     // if (form.checkValidity() === false) {
     //   swal("Student Not Enrolled!", "", "error");
     //   event.preventDefault();
