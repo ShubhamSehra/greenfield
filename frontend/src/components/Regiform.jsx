@@ -21,33 +21,31 @@ function Regiform(props) {
 
   // ******************* Handle Submit **********************
 
-  const handleSubmit =  (event) => {
+  const handleSubmit =  () => {
     // const form = event.currentTarget;
     // event.preventDefault();
+  //  const headers = {
+  //         'Content-Type': 'multipart/form-data'
+  //     }
 
-    console.log(info.fname, "sh");
-    try {
-        console.log("entered");
-        const headers = {
-          'Content-Type': 'multipart/form-data'
+
+      const data = {
+        fname : info.fname,
+        lname : info.lname,
+        fathername : info.fathername,
+        occupation : info.occupation,
+        dob : info.dob,
+        gender : info.gender,
+        enrollDate : info.enrollDate,
+        stndrd : info.stndrd,
+        phone : info.phone,
+        address : info.address,
+        photo : info.photo,
       }
-        axios.post("/api/newentry", {
-         fname : info.fname,
-         lname : info.lname,
-         fathername : info.fathername,
-         occupation : info.occupation,
-         dob : info.dob,
-         gender : info.gender,
-         enrollDate : info.enrollDate,
-         stndrd : info.stndrd,
-         phone : info.phone,
-         address : info.address,
-         photo : info.photo,
-         
-       }, {headers}).then(res => console.log('posting data', res)).catch(err => console.log(err))
-      } catch (error) {
-          console.log(error);
-      }
+        axios.post("/api/newentry", {data}, {headers: {
+          'Content-Type' : 'multipart/form-data'
+        }})
+     
     // if (form.checkValidity() === false) {
     //   swal("Student Not Enrolled!", "", "error");
     //   event.preventDefault();
