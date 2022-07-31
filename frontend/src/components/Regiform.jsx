@@ -29,8 +29,7 @@ function Regiform(props) {
     try {
         console.log("entered");
         const headers = {
-          'Content-Type': 'application/json;charset=UTF-8',
-          "Access-Control-Allow-Origin": "*",
+          'Content-Type': 'multipart/form-data'
       }
         axios.post("/api/newentry", {
          fname : info.fname,
@@ -250,7 +249,7 @@ function Regiform(props) {
             <div className="adj-btn">
               <button
               onClick={handleSubmit}
-                // type="submit"
+                type="submit"
                 className="btn btn-outline-success btn-lg m-3"
               >
                 Submit
