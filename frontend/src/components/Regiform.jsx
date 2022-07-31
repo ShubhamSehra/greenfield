@@ -26,7 +26,8 @@ function Regiform(props) {
     // event.preventDefault();
 
     console.log(info.fname, "sh");
-      try {
+    try {
+        console.log("entered");
         const headers = {
           'Content-Type': 'application/json;charset=UTF-8',
           "Access-Control-Allow-Origin": "*",
