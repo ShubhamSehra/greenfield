@@ -59,7 +59,7 @@ const upload = multer({ storage: storage });
 
 // *********** app-post methods #1 ************
 
-app.post("/api/newentry", upload.single("photo"), (req, res) => {
+app.post("/", upload.single("photo"), (req, res) => {
   
   console.log("reached here 1 ");
   try {
