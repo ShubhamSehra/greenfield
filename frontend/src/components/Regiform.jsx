@@ -97,7 +97,7 @@ function Regiform(props) {
       </div>
       <Form
       noValidate validated={validated} 
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
       >
         <Container>
           <Row>
@@ -240,7 +240,7 @@ function Regiform(props) {
           {!props.id ? (
             <div className="adj-btn">
               <button
-                // onClick={handleSubmit}
+                onClick={handleSubmit}
                 type="submit"
                 className="btn btn-outline-success btn-lg m-3"
               >
