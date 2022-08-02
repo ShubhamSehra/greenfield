@@ -21,7 +21,7 @@ function Regiform(props) {
 
   // ******************* Handle Submit **********************
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     const form = event.currentTarget;
     console.log(event.currentTarget);
     const imagefile = document.querySelector("#image");
@@ -39,12 +39,12 @@ function Regiform(props) {
       photo: imagefile.files[0],
     };
     if (form.checkValidity() === false) {
-     await swal("Student Not Enrolled!", "", "error");
+      swal("Student Not Enrolled!", "", "error");
       event.preventDefault();
       event.stopPropagation();
     } else {
       swal("Student Enrolled!", "", "success");
-     await axios.post("/api/postuser", data, {
+      axios.post("/api/postuser", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
