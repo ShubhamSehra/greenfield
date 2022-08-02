@@ -59,9 +59,9 @@ const upload = multer({ storage: storage });
 // *********** app-post methods #1 ************
 
 app.post("/api/postuser", upload.single("photo"), (req, res) => {
-  console.log("reached here 1 ");
+
   try {
-    console.log("reached here 2 ");
+
     const studentObj = {
       fname: req.body.fname,
       lname: req.body.lname,
@@ -80,7 +80,7 @@ app.post("/api/postuser", upload.single("photo"), (req, res) => {
         contentType: "image/png",
       },
     };
-    console.log(studentObj);
+  
 
     studentModel.create(studentObj, (err, item) => {
       if (err) {
