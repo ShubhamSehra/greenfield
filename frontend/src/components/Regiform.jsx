@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 function Regiform(props) {
   const [info, setInfo] = useState(props.id ? props.studentData : {});
 
-  // const [validated, setValidated] = useState(false);
+  const [validated, setValidated] = useState(false);
 
   const navigate = useNavigate();
 
