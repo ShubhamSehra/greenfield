@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 function Regiform(props) {
   const [info, setInfo] = useState(props.id ? props.studentData : {});
 
-  const [validated, setValidated] = useState(false);
+  // const [validated, setValidated] = useState(false);
 
   const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ function Regiform(props) {
       });
     }
 
-    setValidated(true);
+    // setValidated(true);
   };
   // ************ Handling Edit **********************************
   const handleEdit = async (e) => {
@@ -94,10 +94,7 @@ function Regiform(props) {
           <h1 className="fs-2 title">Enroll New Student</h1>
         )}
       </div>
-      <Form
-        noValidate
-        
-      >
+      <Form>
         <Container>
           <Row>
             <Input

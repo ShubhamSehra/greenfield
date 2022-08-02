@@ -89,46 +89,13 @@ app.post("/api/postuser", upload.single("photo"), (req, res) => {
         item.save();
       }
     });
+    res.redirect("/");
   } catch (error) {
     console.log(error);
   }
-  res.redirect("/");
 });
 
-// *********** app-post methods #2 ************
 
-// app.post("/api/newentry", upload.single("photo"), (req, res) => {
-//   const fname = req.body.fname;
-//   const lname = req.body.lname;
-//   const fathername = req.body.fathername;
-//   const occupation = req.body.occupation;
-//   const dob = req.body.dob;
-//   const gender = req.body.gender;
-//   const enrollDate = req.body.enrollDate;
-//   const stndrd = req.body.stndrd;
-//   const phone = req.body.phone;
-//   const address = req.body.address;
-//   const photo = req.file.filename;
-
-//   const newStudents = new students({
-//     fname: fname,
-//     lname: lname,
-//     fathername: fathername,
-//     occupation: occupation,
-//     dob: dob,
-//     gender: gender,
-//     enrollDate: enrollDate,
-//     stndrd: stndrd,
-//     phone: phone,
-//     address: address,
-//     photo: {
-//     data : fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
-//     contentType: "image/png"
-//    }
-//   });
-//   newStudents.save();
-//   res.redirect("/");
-// });
 
 app.get("/students", (req, res) => {
   studentModel.find().then((foundUser) => res.json(foundUser));
