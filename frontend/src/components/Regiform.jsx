@@ -55,6 +55,10 @@ function Regiform(props) {
   };
   // ************ Handling Edit **********************************
   const handleEdit = async (e) => {
+
+    const imagefile = document.querySelector("#image");
+
+
     const studata = {
       id: props.id,
       fname: info.fname,
@@ -65,7 +69,7 @@ function Regiform(props) {
       gender: info.gender,
       stndrd: info.stndrd,
       phone: info.phone,
-      photo: info.photo,
+      photo: imagefile.files[0],
       address: info.address,
     };
 

@@ -113,7 +113,12 @@ app.put("/api/update", upload.single("photo"), async (req, res) => {
     stndrd: req.body.stndrd,
     phone: req.body.phone,
     address: req.body.address,
-    photo: req.body.filename,
+    photo: {
+      data: fs.readFileSync(
+        path.join(__dirname + "/uploads/" + req.file.filename)
+      ),
+      contentType: "image/png",
+    },
   };
 
   const connectData = {
