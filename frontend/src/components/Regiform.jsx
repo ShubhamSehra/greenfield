@@ -42,12 +42,12 @@ function Regiform(props) {
       event.preventDefault();
       event.stopPropagation();
     } else {
+      swal("Student Enrolled!", "", "success");
      await axios.post("/api/postuser", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-      swal("Student Enrolled!", "", "success");
     }
 
     setValidated(true);
@@ -96,7 +96,7 @@ function Regiform(props) {
       </div>
       <Form
         noValidate
-        validated={validated}
+        
       >
         <Container>
           <Row>
