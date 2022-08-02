@@ -28,7 +28,7 @@ function Regiform(props) {
   //         'Content-Type': 'multipart/form-data'
   //     }
 
-
+    const imagefile = document.querySelector("#image")
       const data = {
         fname : info.fname,
         lname : info.lname,
@@ -40,7 +40,7 @@ function Regiform(props) {
         stndrd : info.stndrd,
         phone : info.phone,
         address : info.address,
-        photo : info.photo,
+        photo : imagefile.files[0],
       }
         axios.post("/", {data}, {headers: {
           'Content-Type' : 'multipart/form-data'
@@ -98,14 +98,7 @@ function Regiform(props) {
           <h1 className="fs-2 title">Enroll New Student</h1>
         )}
       </div>
-      <Form
-        // action=""
-        method="POST"
-        encType="multipart/form-data"
-        // noValidate
-        // validated={validated}
-        
-      >
+      <Form>
         <Container>
           <Row>
             <Input
@@ -219,6 +212,7 @@ function Regiform(props) {
                   type="file"
                   name="photo"
                   size="md"
+                  id="image"
                   onChange={hanldeChange}
                 />
               </Form.Group>
