@@ -21,40 +21,36 @@ function Regiform(props) {
 
   // ******************* Handle Submit **********************
 
-  const handleSubmit =  () => {
-    // const form = event.currentTarget;
-    // event.preventDefault();
-  //  const headers = {
-  //         'Content-Type': 'multipart/form-data'
-  //     }
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    const imagefile = document.querySelector("#image");
+    const data = {
+      fname: info.fname,
+      lname: info.lname,
+      fathername: info.fathername,
+      occupation: info.occupation,
+      dob: info.dob,
+      gender: info.gender,
+      enrollDate: info.enrollDate,
+      stndrd: info.stndrd,
+      phone: info.phone,
+      address: info.address,
+      photo: imagefile.files[0],
+    };
+    if (form.checkValidity() === false) {
+      swal("Student Not Enrolled!", "", "error");
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      axios.post("/api/postuser", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      swal("Student Enrolled!", "", "success");
+    }
 
-    const imagefile = document.querySelector("#image")
-      const data = {
-        fname : info.fname,
-        lname : info.lname,
-        fathername : info.fathername,
-        occupation : info.occupation,
-        dob : info.dob,
-        gender : info.gender,
-        enrollDate : info.enrollDate,
-        stndrd : info.stndrd,
-        phone : info.phone,
-        address : info.address,
-        photo : imagefile.files[0],
-      }
-        axios.post("/api/postuser", data, {headers: {
-          'Content-Type' : 'multipart/form-data'
-        }})
-     
-    // if (form.checkValidity() === false) {
-    //   swal("Student Not Enrolled!", "", "error");
-    //   event.preventDefault();
-    //   event.stopPropagation();
-    // } else {
-    //   swal("Student Enrolled!", "", "success");
-    // }
-
-    // setValidated(true);
+    setValidated(true);
   };
   // ************ Handling Edit **********************************
   const handleEdit = async (e) => {
@@ -98,7 +94,10 @@ function Regiform(props) {
           <h1 className="fs-2 title">Enroll New Student</h1>
         )}
       </div>
-      <Form>
+      <Form
+        noValidate
+        validated={validated}
+      >
         <Container>
           <Row>
             <Input
@@ -240,7 +239,7 @@ function Regiform(props) {
           {!props.id ? (
             <div className="adj-btn">
               <button
-              onClick={handleSubmit}
+                onClick={handleSubmit}
                 type="submit"
                 className="btn btn-outline-success btn-lg m-3"
               >
