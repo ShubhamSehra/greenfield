@@ -42,7 +42,7 @@ function Regiform(props) {
         address : info.address,
         photo : imagefile.files[0],
       }
-        axios.post("/api/postuser", {data}, {headers: {
+        axios.post("/api/postuser", data, {headers: {
           'Content-Type' : 'multipart/form-data'
         }})
      
