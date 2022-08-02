@@ -7,7 +7,7 @@ const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
-const studentModel = require('./model') 
+const studentModel = require("./model");
 const app = express();
 
 app.use(cors());
@@ -21,7 +21,6 @@ const PORT = process.env.PORT || 3001;
 const db = process.env.MONGODB_KEY || process.env.SERVER_KEY;
 
 mongoose.connect(db);
-
 
 // const studentSchema = new mongoose.Schema({
 //   fname: String,
@@ -48,10 +47,10 @@ mongoose.connection.on("connected", () => {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads"); 
+    cb(null, "uploads");
   },
   filename: (req, file, cb) => {
-    cb(null, file.fieldname + "-" + Date.now() + file.originalname); 
+    cb(null, file.fieldname + "-" + Date.now() + file.originalname);
   },
 });
 
@@ -60,82 +59,76 @@ const upload = multer({ storage: storage });
 // *********** app-post methods #1 ************
 
 app.post("/api/postuser", upload.single("photo"), (req, res) => {
-  
   console.log("reached here 1 ");
   try {
     console.log("reached here 2 ");
     const studentObj = {
+      fname: req.body.fname,
+      lname: req.body.lname,
+      fathername: req.body.fathername,
+      occupation: req.body.occupation,
+      dob: req.body.dob,
+      gender: req.body.gender,
+      enrollDate: req.body.enrollDate,
+      stndrd: req.body.stndrd,
+      phone: req.body.phone,
+      address: req.body.address,
+      photo: {
+        data: fs.readFileSync(
+          path.join(__dirname + "/uploads/" + req.file.filename)
+        ),
+        contentType: "image/png",
+      },
+    };
+    console.log(studentObj);
 
-     fname : req.body.fname,
-     lname : req.body.lname,
-     fathername : req.body.fathername,
-     occupation : req.body.occupation,
-     dob : req.body.dob,
-     gender : req.body.gender,
-     enrollDate : req.body.enrollDate,
-     stndrd : req.body.stndrd,
-     phone : req.body.phone,
-     address : req.body.address,
-     photo: {
-      data : fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
-      contentType: "image/png"
-     }
-  }
-  console.log(studentObj);
-
-  studentModel.create(studentObj, (err, item) =>{
-    if(err) {
+    studentModel.create(studentObj, (err, item) => {
+      if (err) {
         console.log(err);
-    } else {
+      } else {
         item.save();
-        res.redirect("/")
       }
-    })
+    });
   } catch (error) {
     console.log(error);
   }
-  
-  });
-  
-  
-  // *********** app-post methods #2 ************
+  res.redirect("/");
+});
 
+// *********** app-post methods #2 ************
 
-  // app.post("/api/newentry", upload.single("photo"), (req, res) => {
-  //   const fname = req.body.fname;
-  //   const lname = req.body.lname;
-  //   const fathername = req.body.fathername;
-  //   const occupation = req.body.occupation;
-  //   const dob = req.body.dob;
-  //   const gender = req.body.gender;
-  //   const enrollDate = req.body.enrollDate;
-  //   const stndrd = req.body.stndrd;
-  //   const phone = req.body.phone;
-  //   const address = req.body.address;
-  //   const photo = req.file.filename;
-  
-  //   const newStudents = new students({
-  //     fname: fname,
-  //     lname: lname,
-  //     fathername: fathername,
-  //     occupation: occupation,
-  //     dob: dob,
-  //     gender: gender,
-  //     enrollDate: enrollDate,
-  //     stndrd: stndrd,
-  //     phone: phone,
-  //     address: address,
-  //     photo: {
-  //     data : fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
-  //     contentType: "image/png"
-  //    }
-  //   });
-  //   newStudents.save();
-  //   res.redirect("/");
-  // });
+// app.post("/api/newentry", upload.single("photo"), (req, res) => {
+//   const fname = req.body.fname;
+//   const lname = req.body.lname;
+//   const fathername = req.body.fathername;
+//   const occupation = req.body.occupation;
+//   const dob = req.body.dob;
+//   const gender = req.body.gender;
+//   const enrollDate = req.body.enrollDate;
+//   const stndrd = req.body.stndrd;
+//   const phone = req.body.phone;
+//   const address = req.body.address;
+//   const photo = req.file.filename;
 
-
-  
+//   const newStudents = new students({
+//     fname: fname,
+//     lname: lname,
+//     fathername: fathername,
+//     occupation: occupation,
+//     dob: dob,
+//     gender: gender,
+//     enrollDate: enrollDate,
+//     stndrd: stndrd,
+//     phone: phone,
+//     address: address,
+//     photo: {
+//     data : fs.readFileSync(path.join(__dirname + "/uploads/" + req.file.filename)),
+//     contentType: "image/png"
+//    }
+//   });
+//   newStudents.save();
+//   res.redirect("/");
+// });
 
 app.get("/students", (req, res) => {
   studentModel.find().then((foundUser) => res.json(foundUser));
@@ -170,8 +163,10 @@ app.put("/api/update", upload.single("photo"), async (req, res) => {
     address: datatopass.address,
   };
 
-  await studentModel.findByIdAndUpdate(datatopass.id, connectData)
-    .then((founditem) => res.json(founditem)).catch((err) => console.log(err));
+  await studentModel
+    .findByIdAndUpdate(datatopass.id, connectData)
+    .then((founditem) => res.json(founditem))
+    .catch((err) => console.log(err));
 });
 
 app.delete("/students/delete/:id", async (req, res) => {
