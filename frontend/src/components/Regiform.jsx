@@ -62,7 +62,14 @@ function Regiform(props) {
   // ************ Handling Edit **********************************
   const handleEdit = async (e) => {
     const imagefile = document.querySelector("#image");
-
+    const fileinfo = () => {
+      
+        if(imagefile === "") {
+          imagefile = "https://picsum.photos/200"
+        }
+      
+    }
+    fileinfo();
     const studata = {
       id: props.id,
       fname: info.fname,
@@ -73,8 +80,8 @@ function Regiform(props) {
       gender: info.gender,
       stndrd: info.stndrd,
       phone: info.phone,
-      photo: imagefile.files[0],
       address: info.address,
+      photo: imagefile.files[0],
     };
 
     await axios.put("/api/update", studata, {
@@ -216,7 +223,7 @@ function Regiform(props) {
             />
 
             <Col>
-              {!props.id &&(<Form.Group controlId="formFileLg" className="mb-3">
+              <Form.Group controlId="formFileLg" className="mb-3">
                 <Form.Label>Student's Photo</Form.Label>
                 <Form.Control
                   type="file"
@@ -225,7 +232,7 @@ function Regiform(props) {
                   id="image"
                   onChange={hanldeChange}
                 />
-              </Form.Group>)}
+              </Form.Group>
             </Col>
 
             <Row>
