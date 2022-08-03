@@ -38,6 +38,11 @@ function Regiform(props) {
       address: info.address,
       photo: imagefile.files[0],
     };
+
+    if(props.id){
+      return handleEdit(data)
+    }
+
     if (form.checkValidity() === false) {
       swal("Student Not Enrolled!", "", "error");
       event.preventDefault();
@@ -56,26 +61,26 @@ function Regiform(props) {
     setValidated(true);
   };
   // ************ Handling Edit **********************************
-  const handleEdit = async (e) => {
+  const handleEdit = async (data) => {
 
-    const imagefile = document.querySelector("#image");
+    // const imagefile = document.querySelector("#image");
 
 
-    const studata = {
-      id: props.id,
-      fname: info.fname,
-      lname: info.lname,
-      fathername: info.fathername,
-      occupation: info.occupation,
-      dob: info.dob,
-      gender: info.gender,
-      stndrd: info.stndrd,
-      phone: info.phone,
-      photo: imagefile.files[0],
-      address: info.address,
-    };
+    // const studata = {
+    //   id: props.id,
+    //   fname: info.fname,
+    //   lname: info.lname,
+    //   fathername: info.fathername,
+    //   occupation: info.occupation,
+    //   dob: info.dob,
+    //   gender: info.gender,
+    //   stndrd: info.stndrd,
+    //   phone: info.phone,
+    //   photo: imagefile.files[0],
+    //   address: info.address,
+    // };
 
-    await axios.put("/api/update", studata);
+    await axios.put("/api/update", data);
     await swal({
       title: "Profile updated!",
       icon: "success",
@@ -264,7 +269,8 @@ function Regiform(props) {
             <div className="adj-btn">
               <button
                 className="btn btn-outline-success btn-lg m-3"
-                onClick={() => handleEdit}
+                type="submit"
+                // onClick={() => handleEdit}
               >
                 Update
               </button>
