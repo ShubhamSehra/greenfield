@@ -108,7 +108,7 @@ function Regiform(props) {
           <h1 className="fs-2 title">Enroll New Student</h1>
         )}
       </div>
-      <Form onSubmit={handleSubmit} noValidate validated={validated}>
+      <Form onSubmit={handleSubmit}  validated={validated}>
         <Container>
           <Row>
             <Input
