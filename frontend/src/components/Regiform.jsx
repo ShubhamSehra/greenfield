@@ -65,7 +65,7 @@ function Regiform(props) {
     const fileinfo = () => {
       
         if(imagefile === "") {
-          imagefile = "https://picsum.photos/200"
+          return (imagefile = "https://picsum.photos/200")
         }
       
     }
