@@ -90,12 +90,12 @@ function Regiform(props) {
       button: "Ok",
     }).
       then(() => {
-        navigate(-2)
+        navigate(-1)
       })
       .catch((error) => {
         console.log(error);
       });
-      navigate(-2)
+      
   };
 
   let d = new Date();
@@ -110,7 +110,7 @@ function Regiform(props) {
           <h1 className="fs-2 title">Enroll New Student</h1>
         )}
       </div>
-      <Form onSubmit={handleSubmit}  validated={validated}>
+      <Form onSubmit={handleSubmit} method="POST" validated={validated}>
         <Container>
           <Row>
             <Input
