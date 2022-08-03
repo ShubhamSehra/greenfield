@@ -216,7 +216,7 @@ function Regiform(props) {
             />
 
             <Col>
-              <Form.Group controlId="formFileLg" className="mb-3">
+              {!props.id &&(<Form.Group controlId="formFileLg" className="mb-3">
                 <Form.Label>Student's Photo</Form.Label>
                 <Form.Control
                   type="file"
@@ -225,7 +225,7 @@ function Regiform(props) {
                   id="image"
                   onChange={hanldeChange}
                 />
-              </Form.Group>
+              </Form.Group>)}
             </Col>
 
             <Row>
