@@ -136,11 +136,11 @@ app.put("/api/update", upload.single("photo"), async (req, res) => {
   };
     try {
       
-     await studentModel.findByIdAndUpdate(datatopass.id, connectData)
+     await studentModel.findByIdAndUpdate(datatopass.id, connectData).then((founditem) => res.json(founditem));
     } catch (error) {
         console.log(error);
     }
-    res.send("/")
+   
 });
 
 app.delete("/students/delete/:id", async (req, res) => {
