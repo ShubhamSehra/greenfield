@@ -47,9 +47,10 @@ function Regiform(props) {
       axios.post("/api/postuser", data, {
         headers: {
           "Content-Type": "multipart/form-data",
-        },
-        method: "post",
-      });
+        }
+      },
+      {method: "post"},
+      );
     }
 
     setValidated(true);
