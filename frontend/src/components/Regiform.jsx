@@ -40,7 +40,7 @@ function Regiform(props) {
     };
 
     if(props.id){
-      return handleEdit(data)
+      return handleEdit(event)
     }
 
     if (form.checkValidity() === false) {
@@ -61,26 +61,26 @@ function Regiform(props) {
     setValidated(true);
   };
   // ************ Handling Edit **********************************
-  const handleEdit = async (data) => {
+  const handleEdit = async (e) => {
 
-    // const imagefile = document.querySelector("#image");
+    const imagefile = document.querySelector("#image");
 
 
-    // const studata = {
-    //   id: props.id,
-    //   fname: info.fname,
-    //   lname: info.lname,
-    //   fathername: info.fathername,
-    //   occupation: info.occupation,
-    //   dob: info.dob,
-    //   gender: info.gender,
-    //   stndrd: info.stndrd,
-    //   phone: info.phone,
-    //   photo: imagefile.files[0],
-    //   address: info.address,
-    // };
+    const studata = {
+      id: props.id,
+      fname: info.fname,
+      lname: info.lname,
+      fathername: info.fathername,
+      occupation: info.occupation,
+      dob: info.dob,
+      gender: info.gender,
+      stndrd: info.stndrd,
+      phone: info.phone,
+      photo: imagefile.files[0],
+      address: info.address,
+    };
 
-    await axios.put("/api/update", data);
+    await axios.put("/api/update", studata);
     await swal({
       title: "Profile updated!",
       icon: "success",
