@@ -39,8 +39,8 @@ function Regiform(props) {
       photo: imagefile.files[0],
     };
 
-    if(props.id){
-      return handleEdit(event)
+    if (props.id) {
+      return handleEdit(event);
     }
 
     if (form.checkValidity() === false) {
@@ -50,21 +50,18 @@ function Regiform(props) {
     } else {
       swal("Student Enrolled!", "", "success");
       axios.post("/api/postuser", data, {
+        method: "POST",
         headers: {
           "Content-Type": "multipart/form-data",
-        }
-      },
-      {method: "post"},
-      );
+        },
+      });
     }
 
     setValidated(true);
   };
   // ************ Handling Edit **********************************
   const handleEdit = async (e) => {
-
     const imagefile = document.querySelector("#image");
-
 
     const studata = {
       id: props.id,
@@ -80,10 +77,11 @@ function Regiform(props) {
       address: info.address,
     };
 
-    await axios.put("/api/update", studata,{
+    await axios.put("/api/update", studata, {
+      method: "POST",
       headers: {
         "Content-Type": "multipart/form-data",
-      }
+      },
     });
     await swal({
       title: "Profile updated!",
@@ -110,12 +108,7 @@ function Regiform(props) {
           <h1 className="fs-2 title">Enroll New Student</h1>
         )}
       </div>
-      <Form 
-      method="POST"
-      onSubmit={handleSubmit}
-      noValidate
-        validated={validated}
-      >
+      <Form onSubmit={handleSubmit} noValidate validated={validated}>
         <Container>
           <Row>
             <Input
