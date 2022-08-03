@@ -101,7 +101,7 @@ app.get("/students", (req, res) => {
   studentModel.find().then((foundUser) => res.json(foundUser));
 });
 
-app.put("/api/update", upload.single("photo"), async (req, res) => {
+app.put("/api/update", upload.single("photo"),  (req, res) => {
   const datatopass = {
     id: req.body.id,
     fname: req.body.fname,
@@ -136,11 +136,11 @@ app.put("/api/update", upload.single("photo"), async (req, res) => {
   };
     try {
       
-    await  studentModel.findByIdAndUpdate(datatopass.id, connectData);
+      studentModel.findByIdAndUpdate(datatopass.id, connectData);
     } catch (error) {
         console.log(error);
     }
-   
+   res.send("yo")
 });
 
 app.delete("/students/delete/:id", async (req, res) => {
