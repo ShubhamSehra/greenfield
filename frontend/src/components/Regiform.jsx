@@ -88,8 +88,8 @@ function Regiform(props) {
       title: "Profile updated!",
       icon: "success",
       button: "Ok",
-    })
-      .then(() => {
+    }).
+      then(() => {
         navigate(-1)
       })
       .catch((error) => {
