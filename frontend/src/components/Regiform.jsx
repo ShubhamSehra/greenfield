@@ -55,6 +55,7 @@ function Regiform(props) {
           "Content-Type": "multipart/form-data",
         },
       });
+      navigate("/")
     }
 
     setValidated(true);
@@ -94,6 +95,7 @@ function Regiform(props) {
       .catch((error) => {
         console.log(error);
       });
+      navigate(-1)
   };
 
   let d = new Date();

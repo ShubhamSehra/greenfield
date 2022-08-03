@@ -140,7 +140,7 @@ app.put("/api/update", upload.single("photo"), async (req, res) => {
     .then((founditem) => res.json(founditem))
     .catch((err) => console.log(err));
 
-    res.send("profile updated!")
+    
 });
 
 app.delete("/students/delete/:id", async (req, res) => {
