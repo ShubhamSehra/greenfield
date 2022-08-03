@@ -139,7 +139,6 @@ app.put("/api/update", upload.single("photo"), async (req, res) => {
     .findByIdAndUpdate(datatopass.id, connectData)
     .then((founditem) => res.json(founditem))
     .catch((err) => console.log(err));
-    res.send("profile Updated")
 });
 
 app.delete("/students/delete/:id", async (req, res) => {
