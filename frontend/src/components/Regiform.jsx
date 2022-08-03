@@ -62,14 +62,7 @@ function Regiform(props) {
   // ************ Handling Edit **********************************
   const handleEdit = async (e) => {
     const imagefile = document.querySelector("#image");
-    const fileinfo = () => {
-      
-        if(imagefile === "") {
-          return (imagefile = "https://picsum.photos/200")
-        }
-      
-    }
-    fileinfo();
+    
     const studata = {
       id: props.id,
       fname: info.fname,
