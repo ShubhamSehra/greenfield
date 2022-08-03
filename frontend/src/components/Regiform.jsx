@@ -48,6 +48,7 @@ function Regiform(props) {
         headers: {
           "Content-Type": "multipart/form-data",
         },
+        method: "post",
       });
     }
 
@@ -99,11 +100,7 @@ function Regiform(props) {
           <h1 className="fs-2 title">Enroll New Student</h1>
         )}
       </div>
-      <form
-      noValidate validated={validated} 
-      method = "post"
-      // onSubmit={handleSubmit}
-      >
+      <Form>
         <Container>
           <Row>
             <Input
@@ -269,7 +266,7 @@ function Regiform(props) {
             </div>
           )}
         </Container>
-      </form>
+      </Form>
     </div>
   );
 }
