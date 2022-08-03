@@ -80,7 +80,11 @@ function Regiform(props) {
       address: info.address,
     };
 
-    await axios.put("/api/update", studata);
+    await axios.put("/api/update", studata,{
+      headers: {
+        "Content-Type": "multipart/form-data",
+      }
+    });
     await swal({
       title: "Profile updated!",
       icon: "success",
@@ -107,6 +111,7 @@ function Regiform(props) {
         )}
       </div>
       <Form 
+     
       onSubmit={handleSubmit}
       noValidate
         validated={validated}
