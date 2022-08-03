@@ -224,6 +224,7 @@ function Regiform(props) {
                   size="md"
                   id="image"
                   onChange={hanldeChange}
+                  required
                 />
               </Form.Group>
             </Col>
