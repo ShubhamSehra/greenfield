@@ -139,13 +139,13 @@ app.put("/api/update", upload.single("photo"), async (req, res) => {
     .findByIdAndUpdate(datatopass.id, connectData)
     .then((founditem) => res.json(founditem))
     .catch((err) => console.log(err));
-  res.redirect()
+    res.send("profile Updated")
 });
 
 app.delete("/students/delete/:id", async (req, res) => {
   const id = req.params.id;
   await studentModel.findByIdAndRemove(id).exec();
-  res.send(history.back());
+  res.send("/");
 });
 
 app.use(express.static(path.resolve(__dirname, "./frontend/build")));
