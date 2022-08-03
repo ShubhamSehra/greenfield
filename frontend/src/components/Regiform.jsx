@@ -99,7 +99,7 @@ function Regiform(props) {
           <h1 className="fs-2 title">Enroll New Student</h1>
         )}
       </div>
-      <Form
+      <form
       noValidate validated={validated} 
       method = "post"
       // onSubmit={handleSubmit}
@@ -269,7 +269,7 @@ function Regiform(props) {
             </div>
           )}
         </Container>
-      </Form>
+      </form>
     </div>
   );
 }
