@@ -89,7 +89,7 @@ app.post("/api/postuser", upload.single("photo"), (req, res) => {
         item.save();
       }
     });
-    res.redirect("/");
+    res.send("/");
   } catch (error) {
     console.log(error);
   }
@@ -139,6 +139,8 @@ app.put("/api/update", upload.single("photo"), async (req, res) => {
     .findByIdAndUpdate(datatopass.id, connectData)
     .then((founditem) => res.json(founditem))
     .catch((err) => console.log(err));
+
+    res.send("profile updated!")
 });
 
 app.delete("/students/delete/:id", async (req, res) => {
