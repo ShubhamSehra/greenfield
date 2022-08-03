@@ -101,6 +101,7 @@ function Regiform(props) {
       </div>
       <Form
       noValidate validated={validated} 
+      method = "post"
       // onSubmit={handleSubmit}
       >
         <Container>
