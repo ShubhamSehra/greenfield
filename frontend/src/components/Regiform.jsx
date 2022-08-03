@@ -90,12 +90,12 @@ function Regiform(props) {
       button: "Ok",
     }).
       then(() => {
-        navigate(-1)
+        navigate(-2)
       })
       .catch((error) => {
         console.log(error);
       });
-      navigate(-1)
+      navigate(-2)
   };
 
   let d = new Date();

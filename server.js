@@ -136,7 +136,7 @@ app.put("/api/update", upload.single("photo"), async (req, res) => {
   };
     try {
       
-     await studentModel.findByIdAndUpdate(datatopass.id, connectData).then((founditem) => res.json(founditem));
+    await  studentModel.findByIdAndUpdate(datatopass.id, connectData);
     } catch (error) {
         console.log(error);
     }
