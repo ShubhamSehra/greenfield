@@ -90,7 +90,7 @@ function Regiform(props) {
       button: "Ok",
     }).
       then(() => {
-        navigate(-1)
+        history.back()
       })
       .catch((error) => {
         console.log(error);
