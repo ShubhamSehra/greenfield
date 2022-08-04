@@ -78,8 +78,7 @@ function Regiform(props) {
       photo: imagefile.files[0],
     };
 
-     axios.put("/api/update", studata, {headers: {"Content-Type": "multipart/form-data",},
-    });
+     axios.put("/api/update", studata, {headers: {"Content-Type": "multipart/form-data",}});
      swal({
        title: "Profile updated!",
        icon: "success",
