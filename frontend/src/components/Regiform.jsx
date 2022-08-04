@@ -61,7 +61,7 @@ function Regiform(props) {
     setValidated(true);
   };
   // ************ Handling Edit **********************************
-  const handleEdit = async (e) => {
+  const handleEdit = (e) => {
     const imagefile = document.querySelector("#image");
     
     const studata = {
@@ -78,7 +78,7 @@ function Regiform(props) {
       photo: imagefile.files[0],
     };
 
-    await axios.put("/api/update", studata, {headers: {"Content-Type": "multipart/form-data",},
+     axios.put("/api/update", studata, {headers: {"Content-Type": "multipart/form-data",},
     });
      swal({
       title: "Profile updated!",
