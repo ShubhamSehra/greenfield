@@ -86,7 +86,7 @@ function Regiform(props) {
       button: "Ok",
     }).
       then(() => {
-        navigate("/", {replace: true})
+        navigate(-1)
       })
       .catch((error) => {
         console.log(error);
