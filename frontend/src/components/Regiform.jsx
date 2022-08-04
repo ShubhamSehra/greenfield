@@ -81,11 +81,11 @@ function Regiform(props) {
      axios.put("/api/update", studata, {headers: {"Content-Type": "multipart/form-data",},
     });
      swal({
-      title: "Profile updated!",
-      icon: "success",
-      button: "Ok",
-    }).
-      then(() => {
+       title: "Profile updated!",
+       icon: "success",
+       button: "Ok",
+      }).then(() => {
+        console.log("go back");
         navigate(-1)
       })
       .catch((error) => {
