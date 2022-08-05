@@ -22,6 +22,7 @@ function Regiform(props) {
   // ******************* Handle Submit **********************
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     console.log(event.currentTarget);
     const imagefile = document.querySelector("#image");
@@ -54,8 +55,8 @@ function Regiform(props) {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      });
-      navigate("/")
+      }).then(()=> {navigate("/")});
+      
     }
 
     setValidated(true);
@@ -77,19 +78,24 @@ function Regiform(props) {
       address: info.address,
       photo: imagefile.files[0],
     };
-
-     await axios.put("/api/update", studata, {headers: {"Content-Type": "multipart/form-data"}})
-     swal({
-       title: "Profile updated!",
-       icon: "success",
-       button: "Ok",
-      }).then(() => {
-        console.log("go back");
-        navigate(-1)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      console.log("HandleEdit")
+      await axios.put("/api/update", studata, {headers: {"Content-Type": "multipart/form-data"}}).then(()=> {navigate("/")});
+      
+    } catch (error) {
+      console.log(error)
+    }
+    //  swal({
+    //    title: "Profile updated!",
+    //    icon: "success",
+    //    button: "Ok",
+    //   }).then(() => {
+    //     console.log("go back");
+    //     navigate(-1)
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
       
   };
 

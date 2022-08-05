@@ -70,7 +70,7 @@ app.post("/api/postuser", upload.single("photo"), (req, res) => {
         item.save();
       }
     });
-    res.send("/");
+    
   } catch (error) {
     console.log(error);
   }
