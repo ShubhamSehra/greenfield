@@ -107,7 +107,7 @@ function Regiform(props) {
       <Form onSubmit={handleSubmit}  validated={validated}>
         <Container>
           <Row>
-          <Col>
+          <Col sm>
 
             <Input
               type="text"
@@ -118,7 +118,7 @@ function Regiform(props) {
             />
 
           </Col>
-          <Col>
+          <Col sm>
 
             <Input
               type="text"
@@ -131,7 +131,7 @@ function Regiform(props) {
 
           </Row>
           <Row>
-          <Col>
+          <Col sm>
 
             <Input
               type="text"
@@ -142,7 +142,7 @@ function Regiform(props) {
             />
           </Col>
 
-          <Col>
+          <Col sm>
 
             <Input
               type="text"
@@ -157,7 +157,7 @@ function Regiform(props) {
           </Row>
 
           <Row>
-          <Col>
+          <Col sm>
 
             <Input
               type="date"
@@ -169,7 +169,7 @@ function Regiform(props) {
 
           </Col>
 
-            <Col>
+            <Col sm>
               <Form.Select
                 aria-label="Gender"
                 size="lg"
@@ -187,7 +187,7 @@ function Regiform(props) {
           </Row>
 
           <Row>
-            <Col>
+            <Col sm>
               {!props.id && (
                 <FloatingLabel
                   controlId="floatingInput"
@@ -204,7 +204,7 @@ function Regiform(props) {
                 </FloatingLabel>
               )}
             </Col>
-            <Col>
+            <Col sm>
               <Form.Select
                 aria-label="Classes"
                 required
@@ -222,7 +222,7 @@ function Regiform(props) {
           </Row>
 
           <Row>
-          <Col>
+          <Col sm>
 
             <Input
               type="number"
@@ -233,7 +233,7 @@ function Regiform(props) {
             />
           </Col>
 
-            <Col>
+            <Col sm>
               <Form.Group controlId="formFileLg" className="mb-3">
                 <Form.Label>Student's Photo</Form.Label>
                 <Form.Control
@@ -248,7 +248,7 @@ function Regiform(props) {
             </Col>
 
             <Row>
-              <Col>
+              <Col sm>
                 <Form.Group
                   className="mb-3"
                   controlId="exampleForm.ControlTextarea1"
