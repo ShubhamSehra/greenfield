@@ -129,7 +129,7 @@ app.put("/api/update", upload.single("photo"),  async(req, res) => {
 app.delete("/students/delete/:id", async (req, res) => {
   const id = req.params.id;
   await studentModel.findByIdAndRemove(id).exec();
-  res.send("/");
+  res.send("profile deleted");
 });
 
 app.use(express.static(path.resolve(__dirname, "./frontend/build")));

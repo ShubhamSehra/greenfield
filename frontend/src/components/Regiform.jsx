@@ -79,23 +79,16 @@ function Regiform(props) {
       photo: imagefile.files[0],
     };
     try {
-      console.log("HandleEdit")
-      await axios.put("/api/update", studata, {headers: {"Content-Type": "multipart/form-data"}}).then(()=> {navigate("/")});
+      
+      swal({
+        title: "Profile updated!",
+        icon: "success",
+      })
+      await axios.put("/api/update", studata, {headers: {"Content-Type": "multipart/form-data"}}).then(()=> {navigate(-1)});
       
     } catch (error) {
       console.log(error)
     }
-    //  swal({
-    //    title: "Profile updated!",
-    //    icon: "success",
-    //    button: "Ok",
-    //   }).then(() => {
-    //     console.log("go back");
-    //     navigate(-1)
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
       
   };
 
