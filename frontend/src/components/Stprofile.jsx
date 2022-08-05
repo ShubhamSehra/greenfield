@@ -111,7 +111,7 @@ function Stprofile(props) {
           
           
           <tr>
-            <td  >Phone:</td>
+            <td >Phone:</td>
             <td colSpan={3}> {props.phone} </td>
           </tr>
           <tr>

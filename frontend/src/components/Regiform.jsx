@@ -107,6 +107,8 @@ function Regiform(props) {
       <Form onSubmit={handleSubmit}  validated={validated}>
         <Container>
           <Row>
+          <Col>
+
             <Input
               type="text"
               value={info.fname}
@@ -115,6 +117,9 @@ function Regiform(props) {
               name="fname"
             />
 
+          </Col>
+          <Col>
+
             <Input
               type="text"
               changes={hanldeChange}
@@ -122,8 +127,12 @@ function Regiform(props) {
               name="lname"
               value={info.lname}
             />
+          </Col>
+
           </Row>
           <Row>
+          <Col>
+
             <Input
               type="text"
               changes={hanldeChange}
@@ -131,6 +140,9 @@ function Regiform(props) {
               name="fathername"
               value={info.fathername}
             />
+          </Col>
+
+          <Col>
 
             <Input
               type="text"
@@ -139,9 +151,14 @@ function Regiform(props) {
               name="occupation"
               value={info.occupation}
             />
+
+          </Col>
+
           </Row>
 
           <Row>
+          <Col>
+
             <Input
               type="date"
               changes={hanldeChange}
@@ -149,6 +166,8 @@ function Regiform(props) {
               name="dob"
               value={info.dob}
             />
+
+          </Col>
 
             <Col>
               <Form.Select
@@ -203,6 +222,8 @@ function Regiform(props) {
           </Row>
 
           <Row>
+          <Col>
+
             <Input
               type="number"
               changes={hanldeChange}
@@ -210,6 +231,7 @@ function Regiform(props) {
               name="phone"
               value={info.phone}
             />
+          </Col>
 
             <Col>
               <Form.Group controlId="formFileLg" className="mb-3">
