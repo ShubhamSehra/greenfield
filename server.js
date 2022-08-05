@@ -68,6 +68,7 @@ app.post("/api/postuser", upload.single("photo"), (req, res) => {
         console.log(err);
       } else {
         item.save();
+        res.send("profile created")
       }
     });
     
@@ -118,6 +119,7 @@ app.put("/api/update", upload.single("photo"),  async(req, res) => {
     try {
       
       await studentModel.findByIdAndUpdate(datatopass.id, connectData);
+      res.send("profile updated")
       
     } catch (error) {
         console.log(error);

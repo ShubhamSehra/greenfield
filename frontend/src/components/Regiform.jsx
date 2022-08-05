@@ -80,7 +80,7 @@ function Regiform(props) {
     };
     try {
       console.log("HandleEdit")
-      await axios.put("/api/update", studata, {headers: {"Content-Type": "multipart/form-data"}}).then(()=> {navigate("/")});
+      await axios.put("/api/update", studata, {headers: {"Content-Type": "multipart/form-data"}}).then(()=> {history.back()});
       
     } catch (error) {
       console.log(error)
